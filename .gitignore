@@ -16,5 +16,6 @@
 # Binaries
 #
 /rastertobrlaser
+/brdecode
 /brlaser.drv
 *.o

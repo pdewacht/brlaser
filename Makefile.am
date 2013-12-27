@@ -6,6 +6,9 @@ filterdir = $(CUPS_SERVERBIN)/filter
 drv_DATA = brlaser.drv
 drvdir = $(CUPS_DATADIR)/drv
 
+noinst_PROGRAMS = brdecode
+
+
 rastertobrlaser_SOURCES = \
 	src/main.cc \
 	src/debug.h \
@@ -16,3 +19,6 @@ rastertobrlaser_SOURCES = \
 	src/line.cc
 rastertobrlaser_CPPFLAGS = $(CUPS_CFLAGS)
 rastertobrlaser_LDADD = $(CUPS_LIBS)
+
+brdecode_SOURCES = \
+	src/brdecode.cc
