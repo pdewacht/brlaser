@@ -89,9 +89,9 @@ std::string ascii_job_name(const char *job_name, const char *charset) {
 }
 
 page_params build_page_params() {
-  static const std::array<std::string, 6> sources = {
+  static const std::array<std::string, 6> sources = {{
     "AUTO", "T1", "T2", "T3", "MP", "MANUAL"
-  };
+  }};
   static const std::map<std::string, std::string> sizes = {
     { "A4", "A4" },
     { "A5", "A5" },
