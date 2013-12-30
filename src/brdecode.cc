@@ -21,15 +21,14 @@
 #include <exception>
 #include <vector>
 
-#define LINE_SIZE 1200
-
 namespace {
 
-FILE * in_file;
-std::vector<uint8_t> page;
-uint8_t line[LINE_SIZE] = { 0 };
+const size_t MAX_LINE_SIZE = 2000;
+
+FILE *in_file;
+std::vector<std::vector<uint8_t>> page;
+std::vector<uint8_t> line;
 size_t line_offset;
-size_t num_lines = 0;
 
 
 class unexpected_eof: public std::exception {
@@ -42,7 +41,7 @@ class unexpected_eof: public std::exception {
 class line_overflow: public std::exception {
  public:
   virtual const char *what() const noexcept {
-    return "Line buffer overflow, recompile with bigger LINE_SIZE";
+    return "Unreasonable long line, aborting";
   }
 };
 
@@ -74,10 +73,14 @@ void read_repeat(uint8_t cmd) {
   count += 2;
   uint8_t data = get();
 
-  if (line_offset + offset + count > sizeof(line))
-    throw line_overflow();
+  size_t end = line_offset + offset + count;
+  if (end > line.size()) {
+    if (end > MAX_LINE_SIZE)
+      throw line_overflow();
+    line.resize(end);
+  }
   line_offset += offset;
-  std::fill_n(line + line_offset, count, data);
+  std::fill_n(line.begin() + line_offset, count, data);
   line_offset += count;
 }
 
@@ -90,10 +93,14 @@ void read_substitute(uint8_t cmd) {
     count += read_overflow();
   count += 1;
 
-  if (line_offset + offset + count > sizeof(line))
-    throw line_overflow();
+  size_t end = line_offset + offset + count;
+  if (end > line.size()) {
+    if (end > MAX_LINE_SIZE)
+      throw line_overflow();
+    line.resize(end);
+  }
   line_offset += offset;
-  std::generate_n(line + line_offset, count, get);
+  std::generate_n(line.begin() + line_offset, count, get);
   line_offset += count;
 }
 
@@ -109,15 +116,14 @@ void read_edit() {
 void read_line() {
   uint8_t num_edits = get();
   if (num_edits == 255) {
-    std::fill_n(line, sizeof(line), 0);
+    line.clear();
   } else {
     line_offset = 0;
     for (int i = 0; i < num_edits; ++i) {
       read_edit();
     }
   }
-  page.insert(page.end(), line, line + sizeof(line));
-  ++num_lines;
+  page.push_back(line);
 }
 
 void read_block() {
@@ -129,13 +135,11 @@ void read_block() {
 }
 
 bool read_page() {
-  bool in_esc = true;
+  bool in_esc = false;
   int ch;
 
   page.clear();
-  page.reserve(20 * 1000 * 1000);
-  num_lines = 0;
-
+  line.clear();
   while ((ch = getc(in_file)) >= 0) {
     if (ch == '\f') {
       in_esc = false;
@@ -149,6 +153,21 @@ bool read_page() {
     }
   }
   return !page.empty();
+}
+
+void write_pnm(FILE *f) {
+  size_t height = page.size();
+  size_t width = 0;
+  for (auto &l : page) {
+    width = std::max(width, l.size());
+  }
+
+  fprintf(f, "P4 %zd %zd\n", width * 8, height);
+  std::vector<uint8_t> empty(width);
+  for (auto &l : page) {
+    fwrite(l.data(), 1, l.size(), f);
+    fwrite(empty.data(), 1, width - l.size(), f);
+  }
 }
 
 }  // namespace
@@ -192,9 +211,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Can't write file \"%s\"\n", out_filename.c_str());
         return 1;
       }
-      size_t width = sizeof(line) * 8;
-      fprintf(out_file, "P4 %zd %zd\n", width, num_lines);
-      fwrite(page.data(), 1, page.size(), out_file);
+      write_pnm(out_file);
       fclose(out_file);
       fprintf(stderr, "%s\n", out_filename.c_str());
       ++page_num;
