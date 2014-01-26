@@ -27,6 +27,9 @@ namespace {
 
 class block {
  public:
+  block(): line_bytes_(0) {
+  }
+
   void add_line(vector<uint8_t> &&line) {
     assert(!line.empty());
     line_bytes_ += line.size();
@@ -52,11 +55,11 @@ class block {
   }
 
  private:
-  const unsigned max_block_size_ = 16350;
-  const unsigned max_lines_per_block_ = 128;
+  static const unsigned max_block_size_ = 16350;
+  static const unsigned max_lines_per_block_ = 128;
 
   vector<vector<uint8_t>> lines_;
-  int line_bytes_ = 0;
+  int line_bytes_;
 };
 
 }  // namespace

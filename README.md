@@ -17,7 +17,7 @@ Requirements
 ------------
 
 * CUPS: tested with version 1.6.
-* A C++11 compiler. A recent version of GCC or Clang will work.
+* A C++11 compiler: GCC 4.6 or later, or a recent version of Clang.
 
 Copyright
 ---------

@@ -16,6 +16,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <stdint.h>
+#include <stdio.h>
 #include <unistd.h>
 #include <algorithm>
 #include <exception>
@@ -127,9 +128,9 @@ void read_line() {
 }
 
 void read_block() {
-  uint8_t count = get();
+  unsigned count = get();
   count = count * 256 + get();
-  for (int i = 0; i < count; ++i) {
+  for (unsigned i = 0; i < count; ++i) {
     read_line();
   }
 }
