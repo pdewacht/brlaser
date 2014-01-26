@@ -1,5 +1,7 @@
 ACLOCAL_AMFLAGS = -I m4
 
+dist_doc_DATA = README.md
+
 filter_PROGRAMS = rastertobrlaser
 filterdir = $(CUPS_SERVERBIN)/filter
 
