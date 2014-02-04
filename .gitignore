@@ -11,11 +11,16 @@
 /stamp-*
 .deps/
 .dirstamp
+*.log
+*.trs
 
 #
 # Binaries
 #
-/rastertobrlaser
-/brdecode
+/src/rastertobrlaser
+/src/brdecode
+/test/test_lest
+/test/test_line
+/test/test_block
 /brlaser.drv
 *.o
