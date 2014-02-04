@@ -20,49 +20,8 @@
 #include <algorithm>
 #include <vector>
 #include "line.h"
+#include "block.h"
 
-using std::vector;
-
-namespace {
-
-class block {
- public:
-  block(): line_bytes_(0) {
-  }
-
-  void add_line(vector<uint8_t> &&line) {
-    assert(!line.empty());
-    line_bytes_ += line.size();
-    lines_.push_back(line);
-  }
-
-  bool line_fits(unsigned size) {
-    return lines_.size() != max_lines_per_block_
-      && line_bytes_ + size < max_block_size_;
-  }
-
-  void flush(FILE *f) {
-    if (line_bytes_) {
-      fprintf(f, "%dw%c%c",
-              line_bytes_ + 2, 0,
-              static_cast<int>(lines_.size()));
-      for (auto &line : lines_) {
-        fwrite(line.data(), 1, line.size(), f);
-      }
-      line_bytes_ = 0;
-      lines_.clear();
-    }
-  }
-
- private:
-  static const unsigned max_block_size_ = 16350;
-  static const unsigned max_lines_per_block_ = 128;
-
-  vector<vector<uint8_t>> lines_;
-  int line_bytes_;
-};
-
-}  // namespace
 
 job::job(FILE *out, const std::string &job_name)
     : out_(out),
@@ -126,8 +85,8 @@ void job::encode_page(const page_params &page_params,
     write_page_header();
   }
 
-  vector<uint8_t> line(linesize);
-  vector<uint8_t> reference(linesize);
+  std::vector<uint8_t> line(linesize);
+  std::vector<uint8_t> reference(linesize);
   block block;
 
   if (!nextline(line.data())) {
@@ -141,7 +100,7 @@ void job::encode_page(const page_params &page_params,
   fputs("\033*b1030m", out_);
 
   for (int i = 1; i < lines && nextline(line.data()); ++i) {
-    vector<uint8_t> encoded = encode_line(line, reference);
+    std::vector<uint8_t> encoded = encode_line(line, reference);
     if (!block.line_fits(encoded.size())) {
       block.flush(out_);
     }

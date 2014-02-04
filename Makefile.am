@@ -17,6 +17,7 @@ rastertobrlaser_SOURCES = \
 	src/debug.cc \
 	src/job.h \
 	src/job.cc \
+	src/block.h \
 	src/line.h \
 	src/line.cc
 rastertobrlaser_CPPFLAGS = $(CUPS_CFLAGS)
