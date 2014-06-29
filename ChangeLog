@@ -1,0 +1,6 @@
+brlaser v2 (2014-06-29)
+    Suppport compilation with GCC 4.6.
+    Add a basic test suite.
+
+brlaser v1 (2013-12-30)
+    Initial release.

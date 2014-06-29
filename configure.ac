@@ -16,7 +16,7 @@
 # along with brlaser.  If not, see <http:#www.gnu.org/licenses/>.
 
 AC_PREREQ(2.68)
-AC_INIT([brlaser], [1], [pdewacht@gmail.com], [brlaser],
+AC_INIT([brlaser], [2], [pdewacht@gmail.com], [brlaser],
   [https://github.com/pdewacht/brlaser])
 
 AC_CONFIG_SRCDIR([src/line.cc])
