@@ -1,23 +1,15 @@
-"brlaser" Brother DCP-7030 printer driver
+Driver for (some) Brother laster printers
 =========================================
 
-This is a driver for the Brother DCP-7030 laser printer. It might also
-be worth trying if you have some other old Brother monochrome laser
-printer.
+Most Brother printers support a standard printer language such as PCL
+or PostScript, but not all do.  If you have a monochrome Brother laser
+printer (or multi-function device) and the other open source drivers
+don't work, this one might help.
 
-Currently this printer is not supported by other free software
-drivers. Ghostscript's hl1250 driver almost works, but has glitches
-with some fonts. (That driver tries to use PCL emulation, but that
-seems to be buggy on this printer. The proprietary driver never uses
-that mode.)
+It is known to support these printers:
 
-Brother provides a non-free x86-only driver.
-
-Requirements
-------------
-
-* CUPS: tested with version 1.6.
-* A C++11 compiler: GCC 4.6 or later, or a recent version of Clang.
+* Brother DCP-7030
+* Brother DCP-7065DN
 
 Copyright
 ---------
