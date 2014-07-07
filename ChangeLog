@@ -1,3 +1,6 @@
+brlaser v3 (2014-07-07)
+    Added DCP-7065DN description.
+
 brlaser v2 (2014-06-29)
     Suppport compilation with GCC 4.6.
     Add a basic test suite.
