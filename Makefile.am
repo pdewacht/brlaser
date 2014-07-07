@@ -35,16 +35,16 @@ src_brdecode_SOURCES = \
 
 test_test_lest_SOURCES = \
 	test/test_lest.cc \
-	test/lest.h
+	test/lest.hpp
 
 test_test_line_SOURCES = \
 	test/test_line.cc \
 	src/line.h \
 	src/line.cc \
-	test/lest.h
+	test/lest.hpp
 
 test_test_block_SOURCES = \
 	test/test_block.cc \
 	src/block.h \
 	test/tempfile.h \
-	test/lest.h
+	test/lest.hpp
