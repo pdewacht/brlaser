@@ -143,7 +143,6 @@ bool read_page() {
   line.clear();
   while ((ch = getc(in_file)) >= 0) {
     if (ch == '\f') {
-      in_esc = false;
       break;
     } else if (ch == 033) {
       in_esc = true;
