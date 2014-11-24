@@ -3,8 +3,6 @@ AM_CXXFLAGS = $(CUPS_CFLAGS)
 TESTS = $(check_PROGRAMS)
 
 
-dist_doc_DATA = README.md
-
 drv_DATA = brlaser.drv
 drvdir = $(CUPS_DATADIR)/drv
 
