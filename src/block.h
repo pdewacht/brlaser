@@ -25,13 +25,18 @@
 class block {
  public:
   block(): line_bytes_(0) {
+    lines_.reserve(max_lines_per_block_);
+  }
+
+  bool empty() const {
+    return line_bytes_ == 0;
   }
 
   void add_line(std::vector<uint8_t> &&line) {
     assert(!line.empty());
     assert(line_fits(line.size()));
     line_bytes_ += line.size();
-    lines_.push_back(line);
+    lines_.emplace_back(line);
   }
 
   bool line_fits(unsigned size) {
@@ -40,7 +45,7 @@ class block {
   }
 
   void flush(FILE *f) {
-    if (line_bytes_) {
+    if (!empty()) {
       fprintf(f, "%dw%c%c",
               line_bytes_ + 2, 0,
               static_cast<int>(lines_.size()));

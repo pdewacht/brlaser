@@ -53,7 +53,7 @@ const lest::test specification[] = {
   [] {
     EXPECT(( encode_line(vec{1,2,3}) == (vec{1,sub(0,2),1,2,3}) ));
   },
-  
+
   "Encoding a (non-initial) blank line",
   [] {
     EXPECT(( encode_line(vec{0,0,0}, vec{1,2,3}) == vec{0xFF} ));

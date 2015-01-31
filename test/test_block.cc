@@ -24,7 +24,20 @@
 typedef std::vector<uint8_t> vec;
 
 const lest::test specification[] = {
-  "Block line limit",
+  "A block is created empty",
+  [] {
+    block b;
+    EXPECT(b.empty());
+  },
+
+  "Adding a line makes a block no longer empty",
+  [] {
+    block b;
+    b.add_line(vec{1});
+    EXPECT(!b.empty());
+  },
+
+  "A block can contain 128 lines",
   [] {
     block b;
     for (int i = 0; i < 128; ++i) {
@@ -34,7 +47,7 @@ const lest::test specification[] = {
     EXPECT(!b.line_fits(1));
   },
 
-  "Block size limit",
+  "A block has a size limit of about 16 kilobyte",
   [] {
     block b;
     for (int i = 0; i < 16; ++i) {
@@ -44,30 +57,33 @@ const lest::test specification[] = {
     EXPECT(!b.line_fits(400));
   },
 
-  "Flush",
+  "Flushing an empty block does nothing",
   [] {
     block b;
-    {
-      tempfile f;
-      b.flush(f.file());
-      EXPECT(f.data().empty());
-    }
-    for (uint8_t n = 0; n < 10; n += 2) {
-      vec line = {n, static_cast<uint8_t>(n+1)};
-      EXPECT(b.line_fits(line.size()));
-      b.add_line(std::move(line));
-    }
-    {
-      tempfile f;
-      b.flush(f.file());
-      EXPECT(( f.data() == vec{'1','2','w',0,5,0,1,2,3,4,5,6,7,8,9} ));
-    }
-    {
-      tempfile f;
-      b.flush(f.file());
-      EXPECT(f.data().empty());
-    }
+    tempfile f;
+    b.flush(f.file());
+    EXPECT(f.data().empty());
   },
+
+  "Flush() writes the lines to a file with a proper header",
+  [] {
+    block b;
+    for (uint8_t n = 1; n < 6; ++n) {
+      b.add_line(vec{n, n});
+    }
+    tempfile f;
+    b.flush(f.file());
+    EXPECT(( f.data() == vec{'1','2','w',0,5,1,1,2,2,3,3,4,4,5,5} ));
+  },
+
+  "After flush() a block is empty again",
+  [] {
+    block b;
+    b.add_line(vec{1});
+    tempfile f;
+    b.flush(f.file());
+    EXPECT(b.empty());
+  }
 };
 
 int main() {
