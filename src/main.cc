@@ -169,7 +169,16 @@ int main(int argc, char *argv[]) {
   {
     job job(stdout, ascii_job_name(job_name, job_charset));
     while (!interrupted && cupsRasterReadHeader2(ras, &header)) {
+      if (header.cupsBitsPerPixel != 1
+          || header.cupsBitsPerColor != 1
+          || header.cupsNumColors != 1
+          || header.cupsBytesPerLine > 10000) {
+        fprintf(stderr, "ERROR: Page %d: Bogus raster data.\n", pages + 1);
+        dump_page_header(header);
+        return 1;
+      }
       if (pages == 0) {
+        fprintf(stderr, "DEBUG: Page header of first page\n");
         dump_page_header(header);
       }
       job.encode_page(build_page_params(),
@@ -180,8 +189,9 @@ int main(int argc, char *argv[]) {
       fprintf(stderr, "PAGE: %d %d\n", ++pages, header.NumCopies);
     }
   }
+
   if (pages == 0) {
-    fprintf(stderr, "ERROR: No pages were found.");
+    fprintf(stderr, "ERROR: No pages were found.\n");
     return 1;
   }
 
