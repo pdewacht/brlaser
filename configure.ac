@@ -44,6 +44,8 @@ AC_SUBST(CUPS_CFLAGS)
 AC_SUBST(CUPS_LIBS)
 AC_SUBST(CUPS_SERVERBIN)
 AC_SUBST(CUPS_DATADIR)
+AC_CHECK_HEADER("cups/raster.h",,
+	[AC_MSG_ERROR(["raster.h" header file not found. Please install the CUPS image (libcupsimage) development package).])])
 
 dnl 'cups-config --libs' lists a lot of libs we don't need/want,
 dnl try to figure out whether the linker knows about --as-needed.
