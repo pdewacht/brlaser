@@ -12,6 +12,13 @@ It is known to support these printers:
 * Brother DCP-7055
 * Brother DCP-7065DN
 
+Build requirements
+------------------
+Besides a working build environment (i.e. `gcc` or compatible compiler) you will need the header files for libcupsimage2 (especially `raster.h`), as well as the corresponding general build files for CUPS. On Ubuntu and Debian, and their derivatives, these are contained in the following packages and their respective dependencies:
+
+* `libcups2-dev`
+* `libcupsimage2-dev`
+
 Copyright
 ---------
 
