@@ -29,6 +29,7 @@ src_rastertobrlaser_SOURCES = \
 	src/line.h \
 	src/line.cc
 src_rastertobrlaser_LDADD = $(CUPS_LIBS)
+src_rastertobrlaser_LDFLAGS = $(CUPS_LDFLAGS)
 
 src_brdecode_SOURCES = \
 	src/brdecode.cc

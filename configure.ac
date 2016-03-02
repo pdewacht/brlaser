@@ -38,10 +38,12 @@ AS_IF([test -z "$CUPS_CONFIG"],
   [AC_MSG_ERROR(["cups-config" command not found. Please install the CUPS development package.])])
 CUPS_CFLAGS=`"$CUPS_CONFIG" --cflags`
 CUPS_LIBS=`"$CUPS_CONFIG" --image --libs`
+CUPS_LDFLAGS=`"$CUPS_CONFIG" --image --ldflags`
 CUPS_SERVERBIN=`"$CUPS_CONFIG" --serverbin`
 CUPS_DATADIR=`"$CUPS_CONFIG" --datadir`
 AC_SUBST(CUPS_CFLAGS)
 AC_SUBST(CUPS_LIBS)
+AC_SUBST(CUPS_LDFLAGS)
 AC_SUBST(CUPS_SERVERBIN)
 AC_SUBST(CUPS_DATADIR)
 
