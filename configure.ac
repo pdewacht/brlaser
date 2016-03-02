@@ -29,7 +29,7 @@ AM_MAINTAINER_MODE([enable])
 AM_SILENT_RULES([yes])
 
 AC_PROG_CXX
-AX_CXX_COMPILE_STDCXX_11
+AX_CXX_COMPILE_STDCXX([11])
 AX_CXXFLAGS_WARN_ALL
 
 dnl Use cups-config to detect the CUPS configuration.
