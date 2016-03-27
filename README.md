@@ -9,6 +9,7 @@ don't work, this one might help.
 It is known to support these printers:
 
 * Brother DCP-7030
+* Brother DCP-7040 (using DCP-7030 entry)
 * Brother DCP-7055
 * Brother DCP-7065DN
 
