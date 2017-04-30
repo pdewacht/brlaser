@@ -23,6 +23,7 @@
 #include <string>
 
 struct page_params {
+  int num_copies;
   int resolution;
   bool economode;
   std::string sourcetray;
@@ -30,7 +31,8 @@ struct page_params {
   std::string papersize;
 
   bool operator==(const page_params &o) const {
-    return resolution == o.resolution
+    return num_copies == o.num_copies
+      && resolution == o.resolution
       && economode == o.economode
       && sourcetray == o.sourcetray
       && mediatype == o.mediatype
@@ -46,7 +48,6 @@ class job {
   ~job();
 
   void encode_page(const page_params &params,
-                   int num_copies,
                    int lines,
                    int linesize,
                    nextline_fn nextline);
