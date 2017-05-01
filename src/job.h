@@ -25,6 +25,7 @@
 struct page_params {
   int num_copies;
   int resolution;
+  bool duplex;
   bool economode;
   std::string sourcetray;
   std::string mediatype;
@@ -33,6 +34,7 @@ struct page_params {
   bool operator==(const page_params &o) const {
     return num_copies == o.num_copies
       && resolution == o.resolution
+      && duplex == o.duplex
       && economode == o.economode
       && sourcetray == o.sourcetray
       && mediatype == o.mediatype

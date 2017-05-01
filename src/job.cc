@@ -76,6 +76,10 @@ void job::write_page_header() {
 
   fputs("\033E", out_);
   fprintf(out_, "\033&l%dX", std::max(1, page_params_.num_copies));
+
+  if (page_params_.duplex) {
+    fputs("\033&l2S", out_);
+  }
 }
 
 void job::encode_page(const page_params &page_params,

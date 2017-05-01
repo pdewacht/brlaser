@@ -111,6 +111,7 @@ page_params build_page_params() {
   p.resolution = header.HWResolution[0];
   p.economode = header.cupsInteger[10];
   p.mediatype = header.MediaType;
+  p.duplex = header.Duplex;
 
   if (header.MediaPosition < sources.size())
     p.sourcetray = sources[header.MediaPosition];
