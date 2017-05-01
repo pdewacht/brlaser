@@ -33,7 +33,6 @@ Filter application/vnd.cups-raster 33 rastertobrlaser
 // The 1200dpi mode is weird: we need to send 1200x1200dpi raster
 // data, but Brother only advertises 1200x600dpi. I wonder what
 // is going on there.
-Resolution k 1 0 0 0 "300dpi/300 DPI"
 *Resolution k 1 0 0 0 "600dpi/600 DPI"
 Resolution k 1 0 0 0 "1200dpi/1200HQ"
 
@@ -80,6 +79,7 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Attribute "NickName" "" "Brother DCP-7030, using @PACKAGE@ v@VERSION@"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7030;CLS:PRINTER;"
   PCFileName "br7030.ppd"
+  Resolution k 1 0 0 0 "300dpi/300 DPI"
 }
 
 {
@@ -87,6 +87,7 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Attribute "NickName" "" "Brother DCP-7055, using @PACKAGE@ v@VERSION@"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7055;CLS:PRINTER;CID:Brother Laser Type1;"
   PCFileName "br7055.ppd"
+  Resolution k 1 0 0 0 "300dpi/300 DPI"
 }
 
 {
