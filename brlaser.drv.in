@@ -76,6 +76,13 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 
 
 {
+  ModelName "DCP-1510"
+  Attribute "NickName" "" "Brother DCP-1510 series, using @PACKAGE@ v@VERSION@"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,XL2HB;MDL:DCP-1510 series;CLS:PRINTER;CID:Brother Laser Type1;"
+  PCFileName "br1510.ppd"
+}
+
+{
   ModelName "DCP-7030"
   Attribute "NickName" "" "Brother DCP-7030, using @PACKAGE@ v@VERSION@"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7030;CLS:PRINTER;"
