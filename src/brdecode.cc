@@ -21,6 +21,7 @@
 #include <algorithm>
 #include <exception>
 #include <vector>
+#include <string>
 
 namespace {
 
