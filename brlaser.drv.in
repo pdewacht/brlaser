@@ -116,3 +116,10 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Duplex rotated
   PCFileName "br7065dn.ppd"
 }
+
+{
+  ModelName "MFC-7360N"
+  Attribute "NickName" "" "Brother MFC-7360N, using brlaser v3"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:MFC-7360N;CLS:PRINTER;CID:Brother Laser Type1;"
+  PCFileName "br7360n.ppd"
+}

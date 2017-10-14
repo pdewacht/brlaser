@@ -13,6 +13,7 @@ It is known to support these printers:
 * Brother DCP-7055
 * Brother DCP-7055W
 * Brother DCP-7065DN
+* Brother MFC-7360N
 
 Copyright
 ---------
