@@ -1,5 +1,5 @@
-Driver for (some) Brother laster printers
-=========================================
+Driver for (some) Brother laser printers
+========================================
 
 Most Brother printers support a standard printer language such as PCL
 or PostScript, but not all do.  If you have a monochrome Brother laser
