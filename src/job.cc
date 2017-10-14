@@ -73,10 +73,16 @@ void job::write_page_header() {
   fprintf(out_, "@PJL SET PAGEPROTECT = AUTO\n");
   fprintf(out_, "@PJL SET ORIENTATION = PORTRAIT\n");
   fprintf(out_, "@PJL ENTER LANGUAGE = PCL\n");
+
+  fputs("\033E", out_);
+  fprintf(out_, "\033&l%dX", std::max(1, page_params_.num_copies));
+
+  if (page_params_.duplex) {
+    fputs("\033&l2S", out_);
+  }
 }
 
 void job::encode_page(const page_params &page_params,
-                      int num_copies,
                       int lines,
                       int linesize,
                       nextline_fn nextline) {
@@ -95,8 +101,6 @@ void job::encode_page(const page_params &page_params,
   block.add_line(encode_line(line));
   std::swap(line, reference);
 
-  fputs("\033E", out_);
-  fprintf(out_, "\033&l%dX", std::max(1, num_copies));
   fputs("\033*b1030m", out_);
 
   for (int i = 1; i < lines && nextline(line.data()); ++i) {

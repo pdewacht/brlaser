@@ -107,9 +107,11 @@ page_params build_page_params() {
   };
 
   page_params p = { };
+  p.num_copies = header.NumCopies;
   p.resolution = header.HWResolution[0];
   p.economode = header.cupsInteger[10];
   p.mediatype = header.MediaType;
+  p.duplex = header.Duplex;
 
   if (header.MediaPosition < sources.size())
     p.sourcetray = sources[header.MediaPosition];
@@ -182,7 +184,6 @@ int main(int argc, char *argv[]) {
         dump_page_header(header);
       }
       job.encode_page(build_page_params(),
-                      header.NumCopies,
                       header.cupsHeight,
                       header.cupsBytesPerLine,
                       next_line);
