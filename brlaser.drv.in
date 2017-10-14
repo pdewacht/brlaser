@@ -90,6 +90,14 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "DCP-7055W"
+  Attribute "NickName" "" "Brother DCP-7055W, using @PACKAGE@ @VERSION@"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7055W;CLS:PRINTER;CID:Brother Laser Type1;"
+
+  PCFileName "br7055w.ppd"
+}
+
+{
   ModelName "DCP-7065DN"
   Attribute "NickName" "" "Brother DCP-7065DN, using @PACKAGE@ v@VERSION@"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7065DN;CLS:PRINTER;CID:Brother Laser Type1;"
