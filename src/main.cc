@@ -18,7 +18,6 @@
 #include <stdio.h>
 #include <signal.h>
 #include <locale.h>
-#include <iconv.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <cups/raster.h>
@@ -51,41 +50,37 @@ bool next_line(uint8_t *buf) {
   return cupsRasterReadPixels(ras, buf, bytes) == bytes;
 }
 
-// POSIX says the second argument of iconv has type 'char **', but
-// some systems have 'const char **'. This class is used to work
-// around this incompatibility.
-class sloppy_ptr {
- public:
-  explicit sloppy_ptr(const char **ptr): ptr_(ptr) { }
-  operator const char **() { return ptr_; }
-  operator char **() { return const_cast<char **>(ptr_); }
- private:
-  const char **ptr_;
-};
+bool plain_ascii_string(const char *str) {
+  bool result = true;
+  for (; result && *str; str++) {
+    result = *str >= 32 && *str <= 126;
+  }
+  return result;
+}
 
-std::string ascii_job_name(const char *job_name, const char *charset) {
-  if (job_name && charset) {
-    iconv_t cd = iconv_open("ASCII//TRANSLIT//IGNORE", charset);
-    if (cd != (iconv_t) -1) {
-      char ascii[80];
-      const char *in_ptr = job_name;
-      size_t in_left = strlen(job_name);
-      char *out_ptr = ascii;
-      size_t out_left = sizeof(ascii) - 1;
-      while (in_left > 0) {
-        size_t err = iconv(cd,
-                           sloppy_ptr(&in_ptr), &in_left,
-                           &out_ptr, &out_left);
-        if (err == (size_t) -1) {
-          break;
-        }
+std::string ascii_job_name(const char *job_id, const char *job_user, const char *job_name) {
+  std::array<const char *, 3> parts = {{
+    job_id,
+    job_user,
+    job_name
+  }};
+  std::string result;
+  for (const char *part : parts) {
+    if (*part && plain_ascii_string(part)) {
+      if (!result.empty()) {
+        result += '/';
       }
-      *out_ptr = 0;
-      iconv_close(cd);
-      return ascii;
+      result += part;
     }
   }
-  return "CUPS";
+  if (result.empty()) {
+    result = "brlaser";
+  }
+  const int max_size = 79;
+  if (result.size() > max_size) {
+    result.resize(max_size);
+  }
+  return result;
 }
 
 page_params build_page_params() {
@@ -139,13 +134,13 @@ int main(int argc, char *argv[]) {
       fprintf(stderr, "INFO: This program is a CUPS filter. It is not intended to be run manually.\n");
       return 1;
   }
-  // const char *job_id = argv[1];
-  // const char *job_user = argv[2];
+  const char *job_id = argv[1];
+  const char *job_user = argv[2];
   const char *job_name = argv[3];
   // const int job_copies = atoi(argv[4]);
   // const char *job_options = argv[5];
   const char *job_filename = argv[6];
-  const char *job_charset = getenv("CHARSET");
+  // const char *job_charset = getenv("CHARSET");
 
   setlocale(LC_ALL, "");
 
@@ -169,7 +164,7 @@ int main(int argc, char *argv[]) {
 
   int pages = 0;
   {
-    job job(stdout, ascii_job_name(job_name, job_charset));
+    job job(stdout, ascii_job_name(job_id, job_user, job_name));
     while (!interrupted && cupsRasterReadHeader2(ras, &header)) {
       if (header.cupsBitsPerPixel != 1
           || header.cupsBitsPerColor != 1
