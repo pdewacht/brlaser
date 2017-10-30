@@ -19,7 +19,7 @@
 #include <assert.h>
 #include <stdint.h>
 #include <vector>
-#include "src/line.h"
+#include "../src/line.h"
 
 typedef std::vector<uint8_t> vec;
 

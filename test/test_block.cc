@@ -19,7 +19,7 @@
 #include <stdint.h>
 #include <vector>
 #include "tempfile.h"
-#include "src/block.h"
+#include "../src/block.h"
 
 typedef std::vector<uint8_t> vec;
 
