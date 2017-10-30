@@ -151,14 +151,14 @@ int main(int argc, char *argv[]) {
   if (job_filename) {
     fd = open(job_filename, O_RDONLY);
     if (fd < 0) {
-      fprintf(stderr, "ERROR: Unable to open raster file\n");
+      fprintf(stderr, "ERROR: " PACKAGE ": Unable to open raster file\n");
       return 1;
     }
   }
 
   ras = cupsRasterOpen(fd, CUPS_RASTER_READ);
   if (!ras) {
-    fprintf(stderr, "ERROR: Can't read raster data\n");
+    fprintf(stderr, "ERROR: " PACKAGE ": Can't read raster data\n");
     return 1;
   }
 
@@ -170,12 +170,12 @@ int main(int argc, char *argv[]) {
           || header.cupsBitsPerColor != 1
           || header.cupsNumColors != 1
           || header.cupsBytesPerLine > 10000) {
-        fprintf(stderr, "ERROR: Page %d: Bogus raster data.\n", pages + 1);
+        fprintf(stderr, "ERROR: " PACKAGE ": Page %d: Bogus raster data.\n", pages + 1);
         dump_page_header(header);
         return 1;
       }
       if (pages == 0) {
-        fprintf(stderr, "DEBUG: Page header of first page\n");
+        fprintf(stderr, "DEBUG: " PACKAGE ": Page header of first page\n");
         dump_page_header(header);
       }
       job.encode_page(build_page_params(),
@@ -187,13 +187,13 @@ int main(int argc, char *argv[]) {
   }
 
   if (pages == 0) {
-    fprintf(stderr, "ERROR: No pages were found.\n");
+    fprintf(stderr, "ERROR: " PACKAGE ": No pages were found.\n");
     return 1;
   }
 
   fflush(stdout);
   if (ferror(stdout)) {
-    fprintf(stderr, "ERROR: Could not write print data\n");
+    fprintf(stderr, "ERROR: " PACKAGE ": Could not write print data\n");
     return 1;
   }
   return 0;

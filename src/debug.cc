@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with brlaser.  If not, see <http://www.gnu.org/licenses/>.
 
+#include "config.h"
 #include "debug.h"
 #include <iostream>
 #include <typeinfo>
@@ -23,12 +24,12 @@ namespace {
 
 template <typename T>
 void dump(const char *name, const T &value) {
-  std::cerr << "DEBUG: page header: " << name << " = " << value << '\n';
+  std::cerr << "DEBUG: " PACKAGE ": page header: " << name << " = " << value << '\n';
 }
 
 template <typename T, int N>
 void dump(const char *name, const T (&value)[N]) {
-  std::cerr << "DEBUG: page header: " << name << " =";
+  std::cerr << "DEBUG: " PACKAGE ": page header: " << name << " =";
   for (int i = 0; i < N; ++i) {
     std::cerr << ' ' << value[i];
   }
@@ -36,12 +37,12 @@ void dump(const char *name, const T (&value)[N]) {
 }
 
 void dump(const char *name, const char *value) {
-  std::cerr << "DEBUG: page header: " << name << " = \"" << value << "\"\n";
+  std::cerr << "DEBUG: " PACKAGE ": page header: " << name << " = \"" << value << "\"\n";
 }
 
 template <int N, int M>
 void dump(const char *name, const char (&value)[N][M]) {
-  std::cerr << "DEBUG: page header: " << name << " =";
+  std::cerr << "DEBUG: " PACKAGE ": page header: " << name << " =";
   for (int i = 0; i < N; ++i) {
     std::cerr << " \"" << value[i] << '"';
   }
