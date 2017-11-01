@@ -15,6 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with brlaser.  If not, see <http://www.gnu.org/licenses/>.
 
+#define USING "using @CMAKE_PROJECT_NAME@ v@BRLASER_VERSION@"
+
 // Include standard font and media definitions
 #include <font.defs>
 #include <media.defs>
@@ -24,7 +26,7 @@ Font *
 
 // Manufacturer and driver version.
 Manufacturer "Brother"
-Version @VERSION@
+Version "@BRLASER_VERSION@"
 
 // Each filter provided by the driver...
 Filter application/vnd.cups-raster 33 rastertobrlaser
@@ -79,7 +81,7 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 
 {
   ModelName "DCP-1510"
-  Attribute "NickName" "" "Brother DCP-1510 series, using @PACKAGE@ v@VERSION@"
+  Attribute "NickName" "" "Brother DCP-1510 series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,XL2HB;MDL:DCP-1510 series;CLS:PRINTER;CID:Brother Laser Type1;"
   Resolution k 1 0 0 0 "300dpi/300 DPI"
   PCFileName "br1510.ppd"
@@ -87,7 +89,7 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 
 {
   ModelName "DCP-7030"
-  Attribute "NickName" "" "Brother DCP-7030, using @PACKAGE@ v@VERSION@"
+  Attribute "NickName" "" "Brother DCP-7030, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7030;CLS:PRINTER;"
   Resolution k 1 0 0 0 "300dpi/300 DPI"
   PCFileName "br7030.ppd"
@@ -95,7 +97,7 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 
 {
   ModelName "DCP-7055"
-  Attribute "NickName" "" "Brother DCP-7055, using @PACKAGE@ v@VERSION@"
+  Attribute "NickName" "" "Brother DCP-7055, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7055;CLS:PRINTER;CID:Brother Laser Type1;"
   Resolution k 1 0 0 0 "300dpi/300 DPI"
   PCFileName "br7055.ppd"
@@ -103,7 +105,7 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 
 {
   ModelName "DCP-7055W"
-  Attribute "NickName" "" "Brother DCP-7055W, using @PACKAGE@ @VERSION@"
+  Attribute "NickName" "" "Brother DCP-7055W, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7055W;CLS:PRINTER;CID:Brother Laser Type1;"
   Resolution k 1 0 0 0 "300dpi/300 DPI"
   PCFileName "br7055w.ppd"
@@ -111,7 +113,7 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 
 {
   ModelName "DCP-7065DN"
-  Attribute "NickName" "" "Brother DCP-7065DN, using @PACKAGE@ v@VERSION@"
+  Attribute "NickName" "" "Brother DCP-7065DN, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7065DN;CLS:PRINTER;CID:Brother Laser Type1;"
   Duplex rotated
   PCFileName "br7065dn.ppd"
@@ -119,7 +121,7 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 
 {
   ModelName "MFC-7360N"
-  Attribute "NickName" "" "Brother MFC-7360N, using brlaser v3"
+  Attribute "NickName" "" "Brother MFC-7360N, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:MFC-7360N;CLS:PRINTER;CID:Brother Laser Type1;"
   PCFileName "br7360n.ppd"
 }
