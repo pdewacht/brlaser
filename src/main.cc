@@ -158,7 +158,7 @@ int main(int argc, char *argv[]) {
 
   ras = cupsRasterOpen(fd, CUPS_RASTER_READ);
   if (!ras) {
-    fprintf(stderr, "ERROR: " PACKAGE ": Can't read raster data\n");
+    fprintf(stderr, "DEBUG: " PACKAGE ": Cannot read raster data. Most likely an earlier filter in the pipeline failed.\n");
     return 1;
   }
 
