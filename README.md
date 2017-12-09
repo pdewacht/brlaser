@@ -15,6 +15,17 @@ It is known to support these printers:
 * Brother DCP-7065DN
 * Brother MFC-7360N
 
+Installation
+------------
+
+Ubuntu:
+```
+sudo apt-get install autoreconf cups-development libcupsimage2-dev
+./autogen.sh
+make
+sudo make install
+```
+
 Copyright
 ---------
 
