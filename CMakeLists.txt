@@ -12,6 +12,17 @@ include(CheckCXXCompilerFlag)
 include(CheckIncludeFileCXX)
 
 
+## Enable assertions for all builds
+## (cmake by default sets NDEBUG for release builds)
+
+foreach(var
+    CMAKE_CXX_FLAGS_RELEASE
+    CMAKE_CXX_FLAGS_RELWITHDEBINFO
+    CMAKE_CXX_FLAGS_MINSIZEREL)
+  string(REGEX REPLACE "(^| )[/-]D *NDEBUG($| )" " " "${var}" "${${var}}")
+endforeach()
+
+
 ## Configure the compiler
 
 set(CMAKE_CXX_STANDARD 11)
