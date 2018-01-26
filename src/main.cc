@@ -153,6 +153,13 @@ int main(int argc, char *argv[]) {
     }
   }
 
+#ifdef __OpenBSD__
+  if (pledge("stdio", nullptr) != 0) {
+    fprintf(stderr, "ERROR: " PACKAGE ": pledge failed\n");
+    return 1;
+  }
+#endif
+
   ras = cupsRasterOpen(fd, CUPS_RASTER_READ);
   if (!ras) {
     fprintf(stderr, "DEBUG: " PACKAGE ": Cannot read raster data. Most likely an earlier filter in the pipeline failed.\n");
