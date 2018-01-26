@@ -96,6 +96,7 @@ page_params build_page_params() {
     { "EnvC5", "C5" },
     { "EnvMonarch", "MONARCH" },
     { "EnvPRC5", "DL" },
+    { "EnvDL", "DL" },
     { "Executive", "EXECUTIVE" },
     { "Legal", "LEGAL" },
     { "Letter", "LETTER" }
