@@ -17,7 +17,6 @@
 
 #include <stdio.h>
 #include <signal.h>
-#include <locale.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <cups/raster.h>
@@ -142,8 +141,6 @@ int main(int argc, char *argv[]) {
   // const char *job_options = argv[5];
   const char *job_filename = argv[6];
   // const char *job_charset = getenv("CHARSET");
-
-  setlocale(LC_ALL, "");
 
   signal(SIGTERM, sigterm_handler);
   signal(SIGPIPE, SIG_IGN);
