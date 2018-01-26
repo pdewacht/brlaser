@@ -29,25 +29,25 @@
 #include "job.h"
 #include "debug.h"
 
+
 namespace {
 
+cups_raster_t *ras;
 volatile sig_atomic_t interrupted = 0;
+
 
 void sigterm_handler(int sig) {
   interrupted = 1;
 }
 
 
-cups_raster_t *ras;
-cups_page_header2_t header;
-
-bool next_line(uint8_t *buf) {
+bool next_line(std::vector<uint8_t> &buf) {
   if (interrupted) {
     return false;
   }
-  unsigned bytes = header.cupsBytesPerLine;
-  return cupsRasterReadPixels(ras, buf, bytes) == bytes;
+  return cupsRasterReadPixels(ras, buf.data(), buf.size()) == buf.size();
 }
+
 
 bool plain_ascii_string(const char *str) {
   bool result = true;
@@ -82,7 +82,7 @@ std::string ascii_job_name(const char *job_id, const char *job_user, const char 
   return result;
 }
 
-page_params build_page_params() {
+page_params build_page_params(const cups_page_header2_t &header) {
   static const std::array<std::string, 6> sources = {{
     "AUTO", "T1", "T2", "T3", "MP", "MANUAL"
   }};
@@ -125,12 +125,11 @@ page_params build_page_params() {
 }  // namespace
 
 
-
 int main(int argc, char *argv[]) {
   fprintf(stderr, "INFO: %s version %s\n", PACKAGE, VERSION);
 
   if (argc != 6 && argc != 7) {
-      fprintf(stderr, "ERROR: %s job-id user title copies options [file]\n", argv[0]);
+      fprintf(stderr, "ERROR: rastertobrlaser job-id user title copies options [file]\n");
       fprintf(stderr, "INFO: This program is a CUPS filter. It is not intended to be run manually.\n");
       return 1;
   }
@@ -145,7 +144,7 @@ int main(int argc, char *argv[]) {
   signal(SIGTERM, sigterm_handler);
   signal(SIGPIPE, SIG_IGN);
 
-  int fd = 0;
+  int fd = STDIN_FILENO;
   if (job_filename) {
     fd = open(job_filename, O_RDONLY);
     if (fd < 0) {
@@ -163,6 +162,7 @@ int main(int argc, char *argv[]) {
   int pages = 0;
   {
     job job(stdout, ascii_job_name(job_id, job_user, job_name));
+    cups_page_header2_t header;
     while (!interrupted && cupsRasterReadHeader2(ras, &header)) {
       if (header.cupsBitsPerPixel != 1
           || header.cupsBitsPerColor != 1
@@ -176,7 +176,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "DEBUG: " PACKAGE ": Page header of first page\n");
         dump_page_header(header);
       }
-      job.encode_page(build_page_params(),
+      job.encode_page(build_page_params(header),
                       header.cupsHeight,
                       header.cupsBytesPerLine,
                       next_line);
@@ -191,7 +191,7 @@ int main(int argc, char *argv[]) {
 
   fflush(stdout);
   if (ferror(stdout)) {
-    fprintf(stderr, "ERROR: " PACKAGE ": Could not write print data\n");
+    fprintf(stderr, "DEBUG: " PACKAGE ": Could not write print data. Most likely the CUPS backend failed.\n");
     return 1;
   }
   return 0;

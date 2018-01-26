@@ -21,6 +21,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 struct page_params {
   int num_copies;
@@ -44,7 +45,7 @@ struct page_params {
 
 class job {
  public:
-  typedef bool (*nextline_fn)(uint8_t *buf);
+  typedef bool (*nextline_fn)(std::vector<uint8_t> &buf);
 
   explicit job(FILE *out, const std::string &job_name);
   ~job();

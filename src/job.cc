@@ -95,7 +95,7 @@ void job::encode_page(const page_params &page_params,
   std::vector<uint8_t> reference(linesize);
   block block;
 
-  if (!nextline(line.data())) {
+  if (!nextline(line)) {
     return;
   }
   block.add_line(encode_line(line));
@@ -103,7 +103,7 @@ void job::encode_page(const page_params &page_params,
 
   fputs("\033*b1030m", out_);
 
-  for (int i = 1; i < lines && nextline(line.data()); ++i) {
+  for (int i = 1; i < lines && nextline(line); ++i) {
     std::vector<uint8_t> encoded = encode_line(line, reference);
     if (!block.line_fits(encoded.size())) {
       block.flush(out_);
