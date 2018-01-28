@@ -8,13 +8,14 @@ such as PCL or PostScript, not all do. If you have a monochrome
 Brother laser printer (or multi-function device) and the other open
 source drivers don't work, this one might help.
 
-This driver is known to support these printers:
+This driver is known to work with these printers:
 
-* Brother DCP-1510 series
+* Brother DCP-1510
 * Brother DCP-7030
 * Brother DCP-7055
 * Brother DCP-7055W
 * Brother DCP-7065DN
+* Brother HL-L2300D
 * Brother MFC-7360N
 
 
