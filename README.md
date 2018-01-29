@@ -12,6 +12,7 @@ This driver is known to work with these printers:
 
 * Brother DCP-1510
 * Brother DCP-7030
+* Brother DCP-7040
 * Brother DCP-7055
 * Brother DCP-7055W
 * Brother DCP-7065DN
