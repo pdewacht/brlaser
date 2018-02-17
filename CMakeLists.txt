@@ -54,26 +54,37 @@ find_program(CUPS_CONFIG NAMES cups-config)
 if(NOT CUPS_CONFIG)
   message(FATAL_ERROR "cups-config command not found. Are the CUPS development packages installed?")
 endif()
-execute_process(
-  COMMAND "${CUPS_CONFIG}" --datadir
-  OUTPUT_VARIABLE CUPS_DATA_DIR
-  OUTPUT_STRIP_TRAILING_WHITESPACE)
-execute_process(
-  COMMAND "${CUPS_CONFIG}" --serverbin
-  OUTPUT_VARIABLE CUPS_SERVER_BIN
-  OUTPUT_STRIP_TRAILING_WHITESPACE)
-execute_process(
-  COMMAND "${CUPS_CONFIG}" --cflags
-  OUTPUT_VARIABLE CUPS_CFLAGS
-  OUTPUT_STRIP_TRAILING_WHITESPACE)
-execute_process(
-  COMMAND "${CUPS_CONFIG}" --ldflags
-  OUTPUT_VARIABLE CUPS_LDFLAGS
-  OUTPUT_STRIP_TRAILING_WHITESPACE)
-execute_process(
-  COMMAND "${CUPS_CONFIG}" --image --libs
-  OUTPUT_VARIABLE CUPS_LIBS
-  OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+if(NOT CUPS_DATA_DIR)
+  execute_process(
+    COMMAND "${CUPS_CONFIG}" --datadir
+    OUTPUT_VARIABLE CUPS_DATA_DIR
+    OUTPUT_STRIP_TRAILING_WHITESPACE)
+endif()
+if(NOT CUPS_SERVER_BIN)
+  execute_process(
+    COMMAND "${CUPS_CONFIG}" --serverbin
+    OUTPUT_VARIABLE CUPS_SERVER_BIN
+    OUTPUT_STRIP_TRAILING_WHITESPACE)
+endif()
+if(NOT CUPS_CFLAGS)
+  execute_process(
+    COMMAND "${CUPS_CONFIG}" --cflags
+    OUTPUT_VARIABLE CUPS_CFLAGS
+    OUTPUT_STRIP_TRAILING_WHITESPACE)
+endif()
+if(NOT CUPS_LDFLAGS)
+  execute_process(
+    COMMAND "${CUPS_CONFIG}" --ldflags
+    OUTPUT_VARIABLE CUPS_LDFLAGS
+    OUTPUT_STRIP_TRAILING_WHITESPACE)
+endif()
+if(NOT CUPS_LIBS)
+  execute_process(
+    COMMAND "${CUPS_CONFIG}" --image --libs
+    OUTPUT_VARIABLE CUPS_LIBS
+    OUTPUT_STRIP_TRAILING_WHITESPACE)
+endif()
 
 cmake_push_check_state()
 set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} ${CUPS_CFLAGS}")
