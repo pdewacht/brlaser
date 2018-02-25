@@ -1,3 +1,8 @@
+brlaser v4 (2018-02-25)
+    Added several printers.
+    Merged duplex printing support from @xc-racer99. Enabled for DCP-7065DN.
+    Switched to a CMake build system.
+
 brlaser v3 (2014-07-07)
     Added DCP-7065DN description.
 
