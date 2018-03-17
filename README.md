@@ -17,6 +17,7 @@ This driver is known to work with these printers:
 * Brother DCP-7055W
 * Brother DCP-7065DN
 * Brother HL-L2300D
+* Brother HL-L2360DW
 * Brother MFC-7240
 * Brother MFC-7360N
 

@@ -129,10 +129,18 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 
 {
   ModelName "HL-L2300D"
-  Attribute "NickName" "" "Brother HL-L2300D, $USING"
-  Attribute "1284DeviceID" "" " MFG:Brother;CMD:PJL,HBP;MDL:HL-L2300D series;CLS:PRINTER;CID:Brother Laser Type1;"
+  Attribute "NickName" "" "Brother HL-L2300D series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-L2300D series;CLS:PRINTER;CID:Brother Laser Type1;"
   Duplex rotated
   PCFileName "brl2300d.ppd"
+}
+
+{
+  ModelName "HL-L2360D"
+  Attribute "NickName" "" "Brother HL-L2360D series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:HL-L2360D series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ4,RS300-600,V1.3,DM1;"
+  Duplex rotated
+  PCFileName "brl2360d.ppd"
 }
 
 {
