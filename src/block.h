@@ -24,35 +24,38 @@
 
 class block {
  public:
-  block(): line_bytes_(0) {
+  block(): block_size_(0) {
     lines_.reserve(max_lines_per_block_);
   }
 
   bool empty() const {
-    return line_bytes_ == 0;
+    return block_size_ == 0;
+  }
+
+  bool full() const {
+    return lines_.size() == max_lines_per_block_;
   }
 
   void add_line(std::vector<uint8_t> &&line) {
     assert(!line.empty());
     assert(line_fits(line.size()));
-    line_bytes_ += line.size();
+    block_size_ += line.size();
     lines_.emplace_back(line);
   }
 
-  bool line_fits(unsigned size) {
-    return lines_.size() != max_lines_per_block_
-      && line_bytes_ + size < max_block_size_;
+  bool line_fits(unsigned line_size) const {
+    return !full() && block_size_ + line_size < max_block_size_;
   }
 
   void flush(FILE *f) {
     if (!empty()) {
       fprintf(f, "%dw%c%c",
-              line_bytes_ + 2, 0,
+              block_size_ + 2, 0,
               static_cast<int>(lines_.size()));
       for (auto &line : lines_) {
         fwrite(line.data(), 1, line.size(), f);
       }
-      line_bytes_ = 0;
+      block_size_ = 0;
       lines_.clear();
     }
   }
@@ -62,7 +65,7 @@ class block {
   static const unsigned max_lines_per_block_ = 128;
 
   std::vector<std::vector<uint8_t>> lines_;
-  int line_bytes_;
+  int block_size_;
 };
 
 #endif  // BLOCK_H
