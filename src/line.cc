@@ -145,10 +145,12 @@ vector<uint8_t> encode_line(const vector<uint8_t> &line,
   int num_edits = 0;
 
   auto line_it = line.begin();
+  auto line_end_it =
+    std::mismatch(line.rbegin(), line.rend(), reference.rbegin()).first.base();
   auto ref_it = reference.begin();
   while (1) {
-    int offset = skip_to_next_mismatch(&line_it, line.end(), &ref_it);
-    if (line_it == line.end()) {
+    int offset = skip_to_next_mismatch(&line_it, line_end_it, &ref_it);
+    if (line_it == line_end_it) {
       // No more differences, we're done.
       break;
     }
@@ -156,17 +158,17 @@ vector<uint8_t> encode_line(const vector<uint8_t> &line,
     if (++num_edits == max_edits) {
       // We've run out of edits. Just output the rest of the line in a big
       // substitute command.
-      write_substitute(offset, line_it, line.end(), &output);
+      write_substitute(offset, line_it, line_end_it, &output);
       break;
     }
 
-    int s = substitute_length(line_it, line.end(), ref_it);
+    int s = substitute_length(line_it, line_end_it, ref_it);
     if (s > 0) {
       write_substitute(offset, line_it, std::next(line_it, s), &output);
       line_it += s;
       ref_it += s;
     } else {
-      int r = repeat_length(line_it, line.end());
+      int r = repeat_length(line_it, line_end_it);
       assert(r >= 2);
       write_repeat(offset, r, *line_it, &output);
       line_it += r;
