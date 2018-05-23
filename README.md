@@ -20,6 +20,7 @@ This driver is known to work with these printers:
 * Brother HL-L2360DW
 * Brother MFC-7240
 * Brother MFC-7360N
+* Lenovo M7605D
 
 
 Other printers
