@@ -91,31 +91,24 @@ void job::encode_page(const page_params &page_params,
     write_page_header();
   }
 
-  fputs("\033*b1030m", out_);
-
   std::vector<uint8_t> line(linesize);
   std::vector<uint8_t> reference(linesize);
   block block;
 
-  for (int i = 0; i < lines && nextline(line); ++i) {
-    if (block.empty()) {
-      // Beginning of a new block, do not apply delta-encoding.
-      block.add_line(encode_line(line));
-    } else {
-      // In the middle of a block, try delta-encoding.
-      std::vector<uint8_t> encoded = encode_line(line, reference);
-      if (block.line_fits(encoded.size())) {
-        // Ok, there's enough room for another line.
-        block.add_line(std::move(encoded));
-      } else {
-        // Oops, the line didn't fit. Start a new block.
-        block.flush(out_);
-        block.add_line(encode_line(line));
-      }
-    }
-    if (block.full()) {
+  if (!nextline(line)) {
+    return;
+  }
+  block.add_line(encode_line(line));
+  std::swap(line, reference);
+
+  fputs("\033*b1030m", out_);
+
+  for (int i = 1; i < lines && nextline(line); ++i) {
+    std::vector<uint8_t> encoded = encode_line(line, reference);
+    if (!block.line_fits(encoded.size())) {
       block.flush(out_);
     }
+    block.add_line(std::move(encoded));
     std::swap(line, reference);
   }
 
