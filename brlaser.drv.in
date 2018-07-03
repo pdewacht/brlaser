@@ -128,11 +128,41 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "DCP-7080"
+  Attribute "NickName" "" "Brother DCP-7080, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7080;CLS:PRINTER;CID:Brother Laser Type1;"
+  PCFileName "br7080.ppd"
+}
+
+{
+  ModelName "DCP-7080D"
+  Attribute "NickName" "" "Brother DCP-7080D, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7080D;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "br7080d.ppd"
+}
+
+{
+  ModelName "HL-1200"
+  Attribute "NickName" "" "Brother HL-1200 series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-1200 series;CLS:PRINTER;CID:Brother Laser Type3;"
+  PCFileName "br1200.ppd"
+}
+
+{
   ModelName "HL-L2300D"
   Attribute "NickName" "" "Brother HL-L2300D series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-L2300D series;CLS:PRINTER;CID:Brother Laser Type1;"
   Duplex rotated
   PCFileName "brl2300d.ppd"
+}
+
+{
+  ModelName "HL-L2320D"
+  Attribute "NickName" "" "Brother HL-L2320D series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-L2320D series;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "brl2320d.ppd"
 }
 
 {
