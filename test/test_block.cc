@@ -37,10 +37,10 @@ const lest::test specification[] = {
     EXPECT(!b.empty());
   },
 
-  "A block can contain 128 lines",
+  "A block can contain 64 lines",
   [] {
     block b;
-    for (int i = 0; i < 128; ++i) {
+    for (int i = 0; i < 64; ++i) {
       EXPECT(b.line_fits(1));
       b.add_line(vec(1));
     }

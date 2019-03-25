@@ -59,7 +59,7 @@ class block {
 
  private:
   static const unsigned max_block_size_ = 16350;
-  static const unsigned max_lines_per_block_ = 128;
+  static const unsigned max_lines_per_block_ = 64;
 
   std::vector<std::vector<uint8_t>> lines_;
   int line_bytes_;
