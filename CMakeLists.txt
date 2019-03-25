@@ -112,7 +112,7 @@ target_compile_options(rastertobrlaser PRIVATE ${CUPS_CFLAGS})
 target_link_libraries(rastertobrlaser ${CUPS_LIBS})
 target_link_libraries(rastertobrlaser ${CUPS_LDFLAGS})
 
-add_executable(brdecode src/brdecode.cc)
+add_executable(brdecode EXCLUDE_FROM_ALL src/brdecode.cc)
 add_executable(test_lest test/test_lest.cc)
 add_executable(test_line test/test_line.cc src/line.cc)
 add_executable(test_block test/test_block.cc)
