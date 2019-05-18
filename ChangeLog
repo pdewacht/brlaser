@@ -1,3 +1,8 @@
+brlaser v5 (2019-05-18)
+    Fixed problems with Brother HL-series printers in 600 dpi mode. Thanks
+      to Onno Kortmann for the fix.
+    Added several printers.
+
 brlaser v4 (2018-02-25)
     Added several printers.
     Merged duplex printing support from @xc-racer99. Enabled for DCP-7065DN.
