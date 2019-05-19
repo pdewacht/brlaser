@@ -105,10 +105,12 @@ void job::encode_page(const page_params &page_params,
 
   for (int i = 1; i < lines && nextline(line); ++i) {
     std::vector<uint8_t> encoded = encode_line(line, reference);
-    if (!block.line_fits(encoded.size())) {
+    if (block.line_fits(encoded.size())) {
+      block.add_line(std::move(encoded));
+    } else {
       block.flush(out_);
+      block.add_line(encode_line(line));
     }
-    block.add_line(std::move(encoded));
     std::swap(line, reference);
   }
 
