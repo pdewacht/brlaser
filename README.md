@@ -21,13 +21,13 @@ This driver has been reported to work with these printers:
 * Brother DCP-7080
 * Brother DCP-L2500D
 * Brother DCP-L2540DW
-* Brother HL-1110 series
-* Brother HL-1200 series
-* Brother HL-2270DW series
-* Brother HL-L2300D series
-* Brother HL-L2320D series
-* Brother HL-L2340D series
-* Brother HL-L2360D series
+* Brother HL-1110
+* Brother HL-1200
+* Brother HL-2270DW
+* Brother HL-L2300D
+* Brother HL-L2320D
+* Brother HL-L2340D
+* Brother HL-L2360D
 * Brother MFC-1910W
 * Brother MFC-7240
 * Brother MFC-7360N
