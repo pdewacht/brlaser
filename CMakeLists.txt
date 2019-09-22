@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 project(brlaser CXX)
-set(BRLASER_VERSION "5")
+set(BRLASER_VERSION "6")
 
 if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   message(STATUS "No build type selected, default to RelWithDebInfo")
