@@ -10,8 +10,8 @@ source drivers don't work, this one might help.
 
 This driver has been reported to work with these printers:
 
-* Brother DCP-1510
-* Brother DCP-1602
+* Brother DCP-1510 series
+* Brother DCP-1600 series
 * Brother DCP-7030
 * Brother DCP-7040
 * Brother DCP-7055
@@ -19,10 +19,15 @@ This driver has been reported to work with these printers:
 * Brother DCP-7060D
 * Brother DCP-7065DN
 * Brother DCP-7080
-* Brother DCP-L2500D
-* Brother DCP-L2540DW
+* Brother DCP-L2500D series
+* Brother DCP-L2520D series
+* Brother DCP-L2540DW series
 * Brother HL-1110 series
 * Brother HL-1200 series
+* Brother HL-2030 series
+* Brother HL-2140 series
+* Brother HL-2220 series
+* Brother HL-5030 series
 * Brother HL-L2300D series
 * Brother HL-L2320D series
 * Brother HL-L2340D series
@@ -32,7 +37,7 @@ This driver has been reported to work with these printers:
 * Brother MFC-7360N
 * Brother MFC-7365DN
 * Brother MFC-7840W
-* Brother MFC-L2710DW
+* Brother MFC-L2710DW series
 * Lenovo M7605D
 
 
