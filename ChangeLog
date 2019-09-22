@@ -1,3 +1,7 @@
+brlaser v6 (2019-09-22)
+    Added support for some more Brother HL-series printers. These printers
+      had glitched output in earlier releases.
+
 brlaser v5 (2019-05-18)
     Fixed problems with Brother HL-series printers in 600 dpi mode. Thanks
       to Onno Kortmann for the fix.
