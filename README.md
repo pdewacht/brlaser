@@ -60,7 +60,7 @@ Installation
 ------------
 
 Some operating systems already ship this driver. This is the case for
-at least Debian, Ubuntu, Raspbian, openSUSE, NixOS and Arch Linux.
+at least Debian, Ubuntu, Raspbian, openSUSE, NixOS, Arch Linux and Guix.
 Look for a package named `printer-driver-brlaser`.
 
 You'll also need Ghostscript, in case that's not installed
