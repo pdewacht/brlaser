@@ -55,6 +55,10 @@ class job {
                    int linesize,
                    nextline_fn nextline);
 
+  int pages() const {
+    return pages_;
+  }
+
  private:
   void begin_job();
   void end_job();
@@ -63,6 +67,7 @@ class job {
   FILE *out_;
   std::string job_name_;
   page_params page_params_;
+  int pages_;
 };
 
 #endif  // JOB_H

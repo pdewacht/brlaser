@@ -170,7 +170,6 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  int pages = 0;
   {
     job job(stdout, ascii_job_name(job_id, job_user, job_name));
     cups_page_header2_t header;
@@ -179,11 +178,11 @@ int main(int argc, char *argv[]) {
           || header.cupsBitsPerColor != 1
           || header.cupsNumColors != 1
           || header.cupsBytesPerLine > 10000) {
-        fprintf(stderr, "ERROR: " PACKAGE ": Page %d: Bogus raster data.\n", pages + 1);
+        fprintf(stderr, "ERROR: " PACKAGE ": Page %d: Bogus raster data.\n", job.pages() + 1);
         dump_page_header(header);
         return 1;
       }
-      if (pages == 0) {
+      if (job.pages() == 0) {
         fprintf(stderr, "DEBUG: " PACKAGE ": Page header of first page\n");
         dump_page_header(header);
       }
@@ -191,13 +190,12 @@ int main(int argc, char *argv[]) {
                       header.cupsHeight,
                       header.cupsBytesPerLine,
                       next_line);
-      fprintf(stderr, "PAGE: %d %d\n", ++pages, header.NumCopies);
+      fprintf(stderr, "PAGE: %d %d\n", job.pages(), header.NumCopies);
     }
-  }
 
-  if (pages == 0) {
-    fprintf(stderr, "ERROR: " PACKAGE ": No pages were found.\n");
-    return 1;
+    if (job.pages() == 0) {
+      fprintf(stderr, "ERROR: " PACKAGE ": No pages were found.\n");
+    }
   }
 
   fflush(stdout);

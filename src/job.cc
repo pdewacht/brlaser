@@ -26,17 +26,18 @@
 job::job(FILE *out, const std::string &job_name)
     : out_(out),
       job_name_(job_name),
-      page_params_() {
+      page_params_(),
+      pages_(0) {
   // Delete dubious characters from job name
   std::replace_if(job_name_.begin(), job_name_.end(), [](char c) {
       return c < 32 || c >= 127 || c == '"' || c == '\\';
     }, ' ');
-
-  begin_job();
 }
 
 job::~job() {
-  end_job();
+  if (pages_ != 0) {
+    end_job();
+  }
 }
 
 void job::begin_job() {
@@ -86,6 +87,11 @@ void job::encode_page(const page_params &page_params,
                       int lines,
                       int linesize,
                       nextline_fn nextline) {
+  if (pages_ == 0) {
+    begin_job();
+  }
+  ++pages_;
+
   if (!(page_params_ == page_params)) {
     page_params_ = page_params;
     write_page_header();
