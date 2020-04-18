@@ -33,10 +33,14 @@ This driver has been reported to work with these printers:
 * Brother HL-L2320D series
 * Brother HL-L2340D series
 * Brother HL-L2360D series
+* Brother HL-L2375DW series
+* Brother HL-L2390DW
 * Brother MFC-1910W
 * Brother MFC-7240
 * Brother MFC-7360N
 * Brother MFC-7365DN
+* Brother MFC-7420
+* Brother MFC-7460DN
 * Brother MFC-7840W
 * Brother MFC-L2710DW series
 * Lenovo M7605D
