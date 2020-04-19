@@ -39,10 +39,11 @@ endmacro(extra_cxx_compiler_flag)
 # Compiler warnings
 extra_cxx_compiler_flag("-Wall")
 extra_cxx_compiler_flag("-Wno-missing-braces")
-# Some security flags
+extra_cxx_compiler_flag("-Wdate-time")
+# Some hardening flags
 extra_cxx_compiler_flag("-fstack-protector-strong")
 extra_cxx_compiler_flag("-Wformat")
-extra_cxx_compiler_flag("-Werror=format-security")
+extra_cxx_compiler_flag("-Wformat -Werror=format-security")
 extra_cxx_compiler_flag("-D_FORTIFY_SOURCE=2")
 # Enable the supported flags, but give priority to CXXFLAGS env var
 set(CMAKE_CXX_FLAGS "${EXTRA_CXX_FLAGS} ${CMAKE_CXX_FLAGS}")
