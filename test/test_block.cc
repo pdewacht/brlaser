@@ -37,16 +37,6 @@ const lest::test specification[] = {
     EXPECT(!b.empty());
   },
 
-  "A block can contain 64 lines",
-  [] {
-    block b;
-    for (int i = 0; i < 64; ++i) {
-      EXPECT(b.line_fits(1));
-      b.add_line(vec(1));
-    }
-    EXPECT(!b.line_fits(1));
-  },
-
   "A block has a size limit of about 16 kilobyte",
   [] {
     block b;

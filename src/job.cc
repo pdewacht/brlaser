@@ -109,14 +109,22 @@ void job::encode_page(const page_params &page_params,
 
   fputs("\033*b1030m", out_);
 
+  // XXX brother driver uses 128 lines per band
+  const int lines_per_band = 64;
+
   for (int i = 1; i < lines && nextline(line); ++i) {
-    std::vector<uint8_t> encoded = encode_line(line, reference);
-    if (block.line_fits(encoded.size())) {
-      block.add_line(std::move(encoded));
-    } else {
+    std::vector<uint8_t> encoded;
+    if (i % lines_per_band == 0) {
       block.flush(out_);
-      block.add_line(encode_line(line));
+      encoded = encode_line(line);
+    } else {
+      encoded = encode_line(line, reference);
+      if (!block.line_fits(encoded.size())) {
+        block.flush(out_);
+        encoded = encode_line(line);
+      }
     }
+    block.add_line(std::move(encoded));
     std::swap(line, reference);
   }
 

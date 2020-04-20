@@ -25,7 +25,6 @@
 class block {
  public:
   block(): line_bytes_(0) {
-    lines_.reserve(max_lines_per_block_);
   }
 
   bool empty() const {
@@ -40,8 +39,7 @@ class block {
   }
 
   bool line_fits(unsigned size) {
-    return lines_.size() != max_lines_per_block_
-      && line_bytes_ + size < max_block_size_;
+    return line_bytes_ + size < max_block_size_;
   }
 
   void flush(FILE *f) {
@@ -59,7 +57,6 @@ class block {
 
  private:
   static const unsigned max_block_size_ = 16350;
-  static const unsigned max_lines_per_block_ = 64;
 
   std::vector<std::vector<uint8_t>> lines_;
   int line_bytes_;
