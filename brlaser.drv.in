@@ -389,3 +389,11 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Duplex rotated
   PCFileName "brl2710.ppd"
 }
+
+{
+  ModelName "MFC-L3750CDW series"
+  Attribute "NickName" "" "Brother MFC-L3750CDW series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:MFC-L3750CDW series;CLS:PRINTER;CID:Brother Generic Jpeg Type2;URF:SRGB24,W8,CP1,IS4-1,MT1-3-4-5-8-11,OB10,PQ4,RS600,V1.4,DM1;"
+  Duplex rotated
+  PCFileName "brl3750w.ppd"
+}

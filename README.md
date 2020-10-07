@@ -50,6 +50,7 @@ This driver has been reported to work with these printers:
 * Brother MFC-7840W
 * Brother MFC-8710DW
 * Brother MFC-L2710DW series
+* Brother MFC-L3750CDW series
 * Lenovo M7605D
 
 
