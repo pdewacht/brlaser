@@ -151,6 +151,14 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "DCP-7070DW"
+  Attribute "NickName" "" "Brother DCP-7070DW, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:DCP-7070DW;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "br7070d.ppd"
+}
+
+{
   ModelName "DCP-7080"
   Attribute "NickName" "" "Brother DCP-7080, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7080;CLS:PRINTER;CID:Brother Laser Type1;"
