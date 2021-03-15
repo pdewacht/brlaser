@@ -26,6 +26,7 @@ This driver has been reported to work with these printers:
 * Brother DCP-L2537DW
 * Brother DCP-L2540DW series
 * Brother DCP-T500W
+* Brother DCP-T710W
 * Brother HL-1110 series
 * Brother HL-1200 series
 * Brother HL-2030 series
