@@ -25,6 +25,7 @@ This driver has been reported to work with these printers:
 * Brother DCP-L2520DW series
 * Brother DCP-L2537DW
 * Brother DCP-L2540DW series
+* Brother DCP-L2550DW series
 * Brother DCP-T500W
 * Brother DCP-T710W
 * Brother HL-1110 series
@@ -39,8 +40,10 @@ This driver has been reported to work with these printers:
 * Brother HL-5040 series
 * Brother HL-L2300D series
 * Brother HL-L2305  series
+* Brother HL-L2310D series
 * Brother HL-L2320D series
 * Brother HL-L2340D series
+* Brother HL-L2350DW series
 * Brother HL-L2360D series
 * Brother HL-L2375DW series
 * Brother HL-L2380DW series
@@ -58,7 +61,9 @@ This driver has been reported to work with these printers:
 * Brother MFC-8710DW
 * Brother MFC-L2700DN series
 * Brother MFC-L2710DW series
+* Brother MFC-L2750DW series
 * Brother MFC-L3750CDW series
+* Brother MFC-T910DW series
 * Lenovo M7605D
 
 
