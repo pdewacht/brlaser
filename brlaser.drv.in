@@ -213,6 +213,13 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "DCP-T710W"
+  Attribute "NickName" "" "Brother DCP-T710W, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:HBP,PJL,URF;MDL:DCP-T710W;CLS:PRINTER;CID:Brother Generic Jpeg Type2;URF:SRGB24,W8,CP1,IS1,MT1-8-11,OB9,PQ4-5,RS300,OFU0,V1.4;"
+  PCFileName "brt710w.ppd"
+}
+
+{
   ModelName "HL-1110"
   Attribute "NickName" "" "Brother HL-1110 series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-1110 series;CLS:PRINTER;CID:Brother Laser Type3;"
