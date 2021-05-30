@@ -10,6 +10,7 @@ endif()
 include(CMakePushCheckState)
 include(CheckCXXCompilerFlag)
 include(CheckIncludeFileCXX)
+include(CheckSymbolExists)
 
 
 ## Enable assertions for all builds
@@ -85,6 +86,12 @@ if(NOT CUPS_LIBS)
     COMMAND "${CUPS_CONFIG}" --image --libs
     OUTPUT_VARIABLE CUPS_LIBS
     OUTPUT_STRIP_TRAILING_WHITESPACE)
+endif()
+
+check_symbol_exists(open_memstream "stdio.h" HAVE_OPEN_MEMSTREAM)
+
+if (HAVE_OPEN_MEMSTREAM)
+    extra_cxx_compiler_flag("-DHAVE_OPEN_MEMSTREAM=1")
 endif()
 
 cmake_push_check_state()

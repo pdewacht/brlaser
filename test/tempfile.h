@@ -27,7 +27,13 @@ class tempfile {
   explicit tempfile()
       : ptr_(0),
         size_(0),
-        file_(open_memstream(&ptr_, &size_)) {
+        file_(
+#ifdef HAVE_OPEN_MEMSTREAM
+                open_memstream(&ptr_, &size_)
+#else
+                tmpfile()
+#endif
+                ) {
   }
 
   ~tempfile() {
