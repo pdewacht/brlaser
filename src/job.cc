@@ -77,10 +77,11 @@ void job::write_page_header() {
           page_params_.duplex ? "ON" : "OFF");
   fprintf(out_, "@PJL SET BINDING = %s\n",
           page_params_.tumble ? "SHORTEDGE" : "LONGEDGE");
+  fprintf(out_, "@PJL SET COPIES = %d\n",
+          std::max(1, page_params_.num_copies));
   fprintf(out_, "@PJL ENTER LANGUAGE = PCL\n");
 
   fputs("\033E", out_);
-  fprintf(out_, "\033&l%dX", std::max(1, page_params_.num_copies));
 }
 
 void job::encode_page(const page_params &page_params,
