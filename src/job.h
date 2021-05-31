@@ -27,6 +27,7 @@ struct page_params {
   int num_copies;
   int resolution;
   bool duplex;
+  bool tumble;
   bool economode;
   std::string sourcetray;
   std::string mediatype;
@@ -36,6 +37,7 @@ struct page_params {
     return num_copies == o.num_copies
       && resolution == o.resolution
       && duplex == o.duplex
+      && tumble == o.tumble
       && economode == o.economode
       && sourcetray == o.sourcetray
       && mediatype == o.mediatype

@@ -111,6 +111,7 @@ page_params build_page_params(const cups_page_header2_t &header) {
   p.economode = header.cupsInteger[10];
   p.mediatype = header.MediaType;
   p.duplex = header.Duplex;
+  p.tumble = header.Tumble;
 
   if (header.MediaPosition < sources.size())
     p.sourcetray = sources[header.MediaPosition];
