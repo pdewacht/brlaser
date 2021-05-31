@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Add repository
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
+      - uses: actions/checkout@v2
       - name: Configure
         run: cmake .
       - name: Make
@@ -25,6 +26,7 @@ jobs:
       matrix:
         compiler: [ clang++, gcc++ ]
     steps:
+      - uses: actions/checkout@v2
       - name: Configure
         run: cmake .
       - name: Make
