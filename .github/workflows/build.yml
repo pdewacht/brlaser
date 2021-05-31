@@ -15,7 +15,7 @@ jobs:
       - name: Make
         run: make
         env:
-          CXX: {{ matrix.compiler }}
+          CXX: ${{ matrix.compiler }}
       - name: Run tests
         run: make check
   macos:
@@ -30,6 +30,6 @@ jobs:
       - name: Make
         run: make
         env:
-          CXX: {{ matrix.compiler }}
+          CXX: ${{ matrix.compiler }}
       - name: Run tests
         run: make check
