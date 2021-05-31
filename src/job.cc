@@ -73,14 +73,14 @@ void job::write_page_header() {
           page_params_.papersize.c_str());
   fprintf(out_, "@PJL SET PAGEPROTECT = AUTO\n");
   fprintf(out_, "@PJL SET ORIENTATION = PORTRAIT\n");
+  fprintf(out_, "@PJL SET DUPLEX = %s\n",
+          page_params_.duplex ? "ON" : "OFF");
+  fprintf(out_, "@PJL SET BINDING = %s\n",
+          page_params_.tumble ? "SHORTEDGE" : "LONGEDGE");
   fprintf(out_, "@PJL ENTER LANGUAGE = PCL\n");
 
   fputs("\033E", out_);
   fprintf(out_, "\033&l%dX", std::max(1, page_params_.num_copies));
-
-  if (page_params_.duplex) {
-    fputs("\033&l2S", out_);
-  }
 }
 
 void job::encode_page(const page_params &page_params,
