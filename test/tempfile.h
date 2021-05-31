@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
+#include "config.h"
 
 class tempfile {
  public:

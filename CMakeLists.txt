@@ -90,10 +90,6 @@ endif()
 
 check_symbol_exists(open_memstream "stdio.h" HAVE_OPEN_MEMSTREAM)
 
-if (HAVE_OPEN_MEMSTREAM)
-    extra_cxx_compiler_flag("-DHAVE_OPEN_MEMSTREAM=1")
-endif()
-
 cmake_push_check_state()
 set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} ${CUPS_CFLAGS}")
 check_include_file_cxx(cups/raster.h HAVE_CUPS_RASTER_H)
