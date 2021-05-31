@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Add repository
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
+      - name: Install packages
+        run: sudo apt install libcups2-dev
       - uses: actions/checkout@v2
       - name: Configure
         run: cmake .
