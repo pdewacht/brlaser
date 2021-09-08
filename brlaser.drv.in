@@ -332,7 +332,7 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Attribute "NickName" "" "Brother MFC-7460DN, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:MFC-7460DN;CLS:PRINTER;CID:Brother Laser Type1;"
   Duplex rotated
-  PCFileName "br7365dn.ppd"
+  PCFileName "br7460dn.ppd"
 }
 
 {
