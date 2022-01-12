@@ -214,20 +214,6 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
-  ModelName "DCP-T500W"
-  Attribute "NickName" "" "Brother DCP-T500W, $USING"
-  Attribute "1284DeviceID" "" "MFG:Brother;CMD:HBP,BRPJL;MDL:DCP-T500W;CLS:PRINTER;CID:Brother IJ Type4;"
-  PCFileName "brt500w.ppd"
-}
-
-{
-  ModelName "DCP-T710W"
-  Attribute "NickName" "" "Brother DCP-T710W, $USING"
-  Attribute "1284DeviceID" "" "MFG:Brother;CMD:HBP,PJL,URF;MDL:DCP-T710W;CLS:PRINTER;CID:Brother Generic Jpeg Type2;URF:SRGB24,W8,CP1,IS1,MT1-8-11,OB9,PQ4-5,RS300,OFU0,V1.4;"
-  PCFileName "brt710w.ppd"
-}
-
-{
   ModelName "HL-1110"
   Attribute "NickName" "" "Brother HL-1110 series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-1110 series;CLS:PRINTER;CID:Brother Laser Type3;"
@@ -486,10 +472,3 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   PCFileName "brl3750w.ppd"
 }
 
-{
-  ModelName "MFC-T910DW series"
-  Attribute "NickName" "" "Brother MFC-T910DW, $USING"
-  Attribute "1284DeviceID" "" "MFG:Brother;CMD:HBP,PJL,URF;MDL:MFC-T910DW;CLS:PRINTER;CID:Brother Generic Jpeg Type2;URF:SRGB24,W8,CP1,IS19-1,MT1-8-11,OB9,PQ4-5,RS200-300,OFU0,V1.4,DM3;"
-  Duplex rotated
-  PCFileName "brt910dw.ppd"
-}
