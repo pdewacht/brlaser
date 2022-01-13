@@ -71,6 +71,8 @@ This driver has been reported to work with these printers:
 * Brother MFC-L3750CDW series
 * Lenovo LJ2650DN
 * Lenovo M7605D
+* Fuji Xerox DocuPrint P265 dw
+
 
 Other printers
 --------------
