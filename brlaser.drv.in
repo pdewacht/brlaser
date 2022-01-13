@@ -543,3 +543,11 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   PCFileName "ln2650dn.ppd"
 }
 
+{
+    ModelName "DocuPrint P265 dw"
+    Attribute "NickName" "" "FX DocuPrint P265 dw, $USING"
+    Attribute "1284DeviceID" "" "MFG:FX;CMD:PJL,PCL,PCLXL,URF;MDL:DocuPrint P265 dw;CLS:PRINTER;CID:FX Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ4,RS300-600,V1.3,DM1;"
+    Duplex rotated
+    PCFileName "fxp265dw.ppd"
+}
+
