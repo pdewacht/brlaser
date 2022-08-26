@@ -18,6 +18,7 @@ This driver has been reported to work with these printers:
 * Brother DCP-7055W
 * Brother DCP-7060D
 * Brother DCP-7065DN
+* Brother DCP-7070DW
 * Brother DCP-7080
 * Brother DCP-L2500D series
 * Brother DCP-L2520D series
