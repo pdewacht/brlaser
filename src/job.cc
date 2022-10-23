@@ -80,6 +80,8 @@ void job::write_page_header() {
 
   if (page_params_.duplex) {
     fputs("\033&l2S", out_);
+  } else {
+    fputs("\033&l0S", out_);
   }
 }
 
