@@ -157,12 +157,20 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Duplex rotated
   PCFileName "br7070dw.ppd"
 }
-
+  
 {
   ModelName "DCP-7080"
   Attribute "NickName" "" "Brother DCP-7080, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7080;CLS:PRINTER;CID:Brother Laser Type1;"
   PCFileName "br7080.ppd"
+}
+
+{
+  ModelName "DCP-8065DN"
+  Attribute "NickName" "" "Brother DCP-8065DN, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:DCP-8065DN;CLS:PRINTER;"
+  Duplex rotated
+  PCFileName "br8065dn.ppd"
 }
 
 {
@@ -382,6 +390,14 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "HL-L2370DN"
+  Attribute "NickName" "" "Brother HL-L2370DN series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:HL-L2370DN series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
+  Duplex rotated
+  PCFileName "brl2370n.ppd"
+}
+
+{
   ModelName "HL-L2375DW"
   Attribute "NickName" "" "Brother HL-L2375DW series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:HL-L2375DW series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
@@ -403,6 +419,14 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP,URF;MDL:HL-L2390DW;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
   Duplex rotated
   PCFileName "brl2390w.ppd"
+}
+
+{
+  ModelName "HL-L5000D"
+  Attribute "NickName" "" "Brother HL-L5000D series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:HL-L5000D series;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "brl5000d.ppd"
 }
 
 {
@@ -552,10 +576,10 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
-    ModelName "DocuPrint P265 dw"
-    Attribute "NickName" "" "FX DocuPrint P265 dw, $USING"
-    Attribute "1284DeviceID" "" "MFG:FX;CMD:PJL,PCL,PCLXL,URF;MDL:DocuPrint P265 dw;CLS:PRINTER;CID:FX Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ4,RS300-600,V1.3,DM1;"
-    Duplex rotated
-    PCFileName "fxp265dw.ppd"
+  ModelName "DocuPrint P265 dw"
+  Attribute "NickName" "" "FX DocuPrint P265 dw, $USING"
+  Attribute "1284DeviceID" "" "MFG:FX;CMD:PJL,PCL,PCLXL,URF;MDL:DocuPrint P265 dw;CLS:PRINTER;CID:FX Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ4,RS300-600,V1.3,DM1;"
+  Duplex rotated
+  PCFileName "fxp265dw.ppd"
 }
 
