@@ -78,8 +78,10 @@ void job::write_page_header() {
   fputs("\033E", out_);
   fprintf(out_, "\033&l%dX", std::max(1, page_params_.num_copies));
 
-  if (page_params_.duplex) {
+  if (page_params_.duplex && page_params_.tumble) {
     fputs("\033&l2S", out_);
+  } else if (page_params_.duplex) {
+    fputs("\033&l1S", out_);
   } else {
     fputs("\033&l0S", out_);
   }
