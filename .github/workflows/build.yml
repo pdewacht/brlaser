@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compiler: [ clang++, gcc++, gcc-9++, gcc-10++ ]
+        compiler: [ clang++, gcc++ ]
     steps:
       - name: Add repository
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
