@@ -12,7 +12,7 @@ jobs:
         run: sudo apt-add-repository -y "ppa:ubuntu-toolchain-r/test"
       - name: Install packages
         run: sudo apt install libcups2-dev
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Configure
         run: cmake .
       - name: Make
@@ -28,7 +28,7 @@ jobs:
       matrix:
         compiler: [ clang++, gcc++ ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Configure
         run: cmake .
       - name: Make
