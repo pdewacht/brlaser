@@ -88,10 +88,25 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
-  ModelName "DCP-1600 series"
+  ModelName "DCP-1600"
   Attribute "NickName" "" "Brother DCP-1600 series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,XL2HB;MDL:DCP-1600 series;CLS:PRINTER;CID:Brother Laser Type1;"
   PCFileName "br1600.ppd"
+}
+
+{
+  ModelName "DCP-1610W"
+  Attribute "NickName" "" "Brother DCP-1610W series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-1610W series;CLS:PRINTER;CID:Brother Laser Type1;"
+  PCFileName "br1610w.ppd"
+}
+
+{
+  ModelName "DCP-7020"
+  Attribute "NickName" "" "Brother DCP-7020, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7020;CLS:PRINTER;"
+  Resolution k 1 0 0 0 "300dpi/300 DPI"
+  PCFileName "br7020.ppd"
 }
 
 {
@@ -143,10 +158,26 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "DCP-7070DW"
+  Attribute "NickName" "" "Brother DCP-7070DW, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:DCP-7070DW;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "br7070dw.ppd"
+}
+
+{
   ModelName "DCP-7080"
   Attribute "NickName" "" "Brother DCP-7080, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-7080;CLS:PRINTER;CID:Brother Laser Type1;"
   PCFileName "br7080.ppd"
+}
+
+{
+  ModelName "DCP-8065DN"
+  Attribute "NickName" "" "Brother DCP-8065DN, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:DCP-8065DN;CLS:PRINTER;"
+  Duplex rotated
+  PCFileName "br8065dn.ppd"
 }
 
 {
@@ -166,6 +197,14 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "DCP-L2510D"
+  Attribute "NickName" "" "Brother DCP-L2510D series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-L2510D series;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "brl2510d.ppd"
+}
+
+{
   ModelName "DCP-L2520D"
   Attribute "NickName" "" "Brother DCP-L2520D series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-L2520D series;CLS:PRINTER;CID:Brother Laser Type1;"
@@ -182,11 +221,35 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "DCP-L2537DW"
+  Attribute "NickName" "" "Brother DCP-L2537DW, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP,URF;MDL:DCP-L2537DW;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
+  Duplex rotated
+  PCFileName "brl2537w.ppd"
+}
+
+{
   ModelName "DCP-L2540DW"
   Attribute "NickName" "" "Brother DCP-L2540DW series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:DCP-L2540DW series;CLS:PRINTER;CID:Brother Laser Type1;"
   Duplex rotated
   PCFileName "brl2540.ppd"
+}
+
+{
+  ModelName "DCP-L2550DW"
+  Attribute "NickName" "" "Brother DCP-L2550DW series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:DCP-L2550DW series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
+  Duplex rotated
+  PCFileName "brl2550w.ppd"
+}
+
+{
+  ModelName "FAX-2820"
+  Attribute "NickName" "" "Brother FAX-2820, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:FAX-2820;CLS:PRINTER;"
+  Resolution k 1 0 0 0 "300dpi/300 DPI"
+  PCFileName "br2820.ppd"
 }
 
 {
@@ -205,28 +268,58 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
-  ModelName "HL-2030 series"
+  ModelName "HL-2030"
   Attribute "NickName" "" "Brother HL-2030 series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-2030 series;CLS:PRINTER;"
   PCFileName "br2030.ppd"
 }
 
 {
-  ModelName "HL-2140 series"
+  ModelName "HL-2130"
+  Attribute "NickName" "" "Brother HL-2130 series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-2130 series;CLS:PRINTER;CID:Brother Laser Type1;"
+  PCFileName "br2130.ppd"
+}
+
+{
+  ModelName "HL-2140"
   Attribute "NickName" "" "Brother HL-2140 series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-2140 series;CLS:PRINTER;"
   PCFileName "br2140.ppd"
 }
 
 {
-  ModelName "HL-2220 series"
+  ModelName "HL-2220"
   Attribute "NickName" "" "Brother HL-2220 series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-2220 series;CLS:PRINTER;"
   PCFileName "br2220.ppd"
 }
 
 {
-  ModelName "HL-2270DW series"
+  ModelName "HL-2230"
+  Attribute "NickName" "" "Brother HL-2230 series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-2230 series;CLS:PRINTER;CID:Brother Laser Type1;"
+  PCFileName "br2230.ppd"
+}
+
+{
+  ModelName "HL-2240D"
+  Attribute "NickName" "" "Brother HL-2240D series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-2240D series;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "br2240d.ppd"
+}
+
+{
+  ModelName "HL-2250DN"
+  Attribute "NickName" "" "Brother HL-2250DN series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:HL-2250DN series;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "br2250dn.ppd"
+}
+
+{
+  ModelName "HL-2270DW"
   Attribute "NickName" "" "Brother HL-2270DW series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:HL-2270DW series;CLS:PRINTER;CID:Brother Laser Type1;"
   Resolution k 1 0 0 0 "300dpi/300 DPI"
@@ -235,10 +328,25 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
-  ModelName "HL-5030 series"
+  ModelName "HL-2280DW"
+  Attribute "NickName" "" "Brother HL-2280DW, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:HL-2280DW;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "br2280dw.ppd"
+}
+
+{
+  ModelName "HL-5030"
   Attribute "NickName" "" "Brother HL-5030 series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL;MDL:HL-5030 series;CLS:PRINTER;"
   PCFileName "br5030.ppd"
+}
+
+{
+  ModelName "HL-5040"
+  Attribute "NickName" "" "Brother HL-5040 series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:HL-5040 series;CLS:PRINTER;"
+  PCFileName "br5040.ppd"
 }
 
 {
@@ -247,6 +355,21 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-L2300D series;CLS:PRINTER;CID:Brother Laser Type1;"
   Duplex rotated
   PCFileName "brl2300d.ppd"
+}
+
+{
+  ModelName "HL-L2305"
+  Attribute "NickName" "" "Brother HL-L2305 series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP,URF;MDL:HL-L2305 series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ4,RS300-600,V1.3;"
+  PCFileName "brl2305.ppd"
+}
+
+{
+  ModelName "HL-L2310D"
+  Attribute "NickName" "" "Brother HL-L2310D series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-L2310D series;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "brl2310d.ppd"
 }
 
 {
@@ -266,11 +389,27 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "HL-L2350DW"
+  Attribute "NickName" "" "Brother HL-L2350DW series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP,URF;MDL:HL-L2350DW series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
+  Duplex rotated
+  PCFileName "brl2350w.ppd"
+}
+
+{
   ModelName "HL-L2360D"
   Attribute "NickName" "" "Brother HL-L2360D series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:HL-L2360D series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ4,RS300-600,V1.3,DM1;"
   Duplex rotated
   PCFileName "brl2360d.ppd"
+}
+
+{
+  ModelName "HL-L2370DN"
+  Attribute "NickName" "" "Brother HL-L2370DN series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:HL-L2370DN series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
+  Duplex rotated
+  PCFileName "brl2370n.ppd"
 }
 
 {
@@ -282,6 +421,14 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "HL-L2380DW"
+  Attribute "NickName" "" "Brother HL-L2380DW series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:HL-L2380DW series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ4,RS300-600,V1.3,DM1;"
+  Duplex rotated
+  PCFileName "brl2380w.ppd"
+}
+
+{
   ModelName "HL-L2390DW"
   Attribute "NickName" "" "Brother HL-L2390DW, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP,URF;MDL:HL-L2390DW;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
@@ -290,8 +437,23 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "HL-L5000D"
+  Attribute "NickName" "" "Brother HL-L5000D series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:HL-L5000D series;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "brl5000d.ppd"
+}
+
+{
+  ModelName "MFC-1810"
+  Attribute "NickName" "" "Brother MFC-1810 series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,XL2HB;MDL:MFC-1810 series;CLS:PRINTER;CID:Brother Laser Type1;"
+  PCFileName "br1810.ppd"
+}
+
+{
   ModelName "MFC-1910W"
-  Attribute "NickName" "" "Brother MFC-1910W, $USING"
+  Attribute "NickName" "" "Brother MFC-1910W series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;MFG:Brother;CMD:PJL,HBP;MDL:MFC-1910W series;CLS:PRINTER;CID:Brother Laser Type1;"
   PCFileName "br1910w.ppd"
 }
@@ -304,12 +466,25 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "MFC-7320"
+  Attribute "NickName" "" "Brother MFC-7320, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:MFC-7320;CLS:PRINTER;"
+  PCFileName "br7320.ppd"
+}
+
+{
+  ModelName "MFC-7340"
+  Attribute "NickName" "" "Brother MFC-7340, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:MFC-7340;CLS:PRINTER;"
+  PCFileName "br7340.ppd"
+}
+
+{
   ModelName "MFC-7360N"
   Attribute "NickName" "" "Brother MFC-7360N, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:MFC-7360N;CLS:PRINTER;CID:Brother Laser Type1;"
   PCFileName "br7360n.ppd"
 }
-
 
 {
   ModelName "MFC-7365DN"
@@ -328,6 +503,13 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "MFC-7440N"
+  Attribute "NickName" "" "Brother MFC-7440N, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:MFC-7440N;CLS:PRINTER;"
+  PCFileName "br7440n.ppd"
+}
+
+{
   ModelName "MFC-7460DN"
   Attribute "NickName" "" "Brother MFC-7460DN, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:MFC-7460DN;CLS:PRINTER;CID:Brother Laser Type1;"
@@ -336,9 +518,81 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
-  ModelName "MFC-L2710DW series"
+  ModelName "MFC-8710DW"
+  Attribute "NickName" "" "Brother MFC-8710DW, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:MFC-8710DW;CLS:PRINTER;CID:Brother Laser Type2;URF:W8,CP1,IS11-19-4,MT1-3-4-5-8-11,OB10,PQ4,RS300-600-1200,DM1;"
+  Duplex rotated
+  PCFileName "br8710dw.ppd"
+}
+
+{
+  ModelName "MFC-8860DN"
+  Attribute "NickName" "" "Brother MFC-8860DN, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,POSTSCRIPT;MDL:MFC-8860DN;CLS:PRINTER;"
+  Duplex rotated
+  PCFileName "br8860dn.ppd"
+}
+
+{
+  ModelName "MFC-L2700DN"
+  Attribute "NickName" "" "Brother MFC-L2700DN series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;MDL:MFC-L2700DN series;CMD:PJL,HBP,URF;"
+  Duplex rotated
+  PCFileName "brl2700n.ppd"
+}
+
+{
+  ModelName "MFC-L2700DW"
+  Attribute "NickName" "" "Brother MFC-L2700DW series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP,URF;MDL:MFC-L2700DW series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ4,RS200-300-600,V1.3,DM1;"
+  Duplex rotated
+  PCFileName "brl2700w.ppd"
+}
+
+{
+  ModelName "MFC-L2710DN"
+  Attribute "NickName" "" "Brother MFC-L2710DN series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP,URF;MDL:MFC-L2710DN series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
+  Duplex rotated
+  PCFileName "brl2710n.ppd"
+}
+
+{
+  ModelName "MFC-L2710DW"
   Attribute "NickName" "" "Brother MFC-L2710DW series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP,URF;MDL:MFC-L2710DW series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
   Duplex rotated
   PCFileName "brl2710.ppd"
+}
+
+{
+  ModelName "MFC-L2750DW"
+  Attribute "NickName" "" "Brother MFC-L2750DW series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:MFC-L2750DW series;CLS:PRINTER;CID:Brother Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ3-4-5,RS300-600-1200,V1.4,DM1;"
+  Duplex rotated
+  PCFileName "brl2750w.ppd"
+}
+
+{
+  ModelName "MFC-L3750CDW"
+  Attribute "NickName" "" "Brother MFC-L3750CDW series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:MFC-L3750CDW series;CLS:PRINTER;CID:Brother Generic Jpeg Type2;URF:SRGB24,W8,CP1,IS4-1,MT1-3-4-5-8-11,OB10,PQ4,RS600,V1.4,DM1;"
+  Duplex rotated
+  PCFileName "brl3750w.ppd"
+}
+
+{
+  ModelName "LJ2650DN"
+  Attribute "NickName" "" "Lenovo LJ2650DN, $USING"
+  Attribute "1284DeviceID" "" "MFG:Lenovo;CMD:PJL,PCL,PCLXL;MDL:LJ2650DN;CLS:PRINTER;"
+  Duplex rotated
+  PCFileName "ln2650dn.ppd"
+}
+
+{
+  ModelName "DocuPrint P265 dw"
+  Attribute "NickName" "" "FX DocuPrint P265 dw, $USING"
+  Attribute "1284DeviceID" "" "MFG:FX;CMD:PJL,PCL,PCLXL,URF;MDL:DocuPrint P265 dw;CLS:PRINTER;CID:FX Laser Type1;URF:W8,CP1,IS4-1,MT1-3-4-5-8,OB10,PQ4,RS300-600,V1.3,DM1;"
+  Duplex rotated
+  PCFileName "fxp265dw.ppd"
 }
