@@ -253,6 +253,13 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "FAX-2840"
+  Attribute "NickName" "" "Brother FAX-2840, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;MFG:Brother;CMD:PJL,HBP;MDL:FAX-2840;CLS:PRINTER;CID:Brother Laser Type1;"
+  PCFileName "br2840.ppd"
+}
+
+{
   ModelName "HL-1110"
   Attribute "NickName" "" "Brother HL-1110 series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-1110 series;CLS:PRINTER;CID:Brother Laser Type3;"
@@ -319,6 +326,13 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "HL-2260"
+  Attribute "NickName" "" "Brother HL-2260, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-2260;CLS:PRINTER;CID:Brother Laser Type1;"
+  PCFileName "br2260.ppd"
+}
+
+{
   ModelName "HL-2270DW series"
   Attribute "NickName" "" "Brother HL-2270DW series, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:HL-2270DW series;CLS:PRINTER;CID:Brother Laser Type1;"
@@ -378,6 +392,14 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-L2320D series;CLS:PRINTER;CID:Brother Laser Type1;"
   Duplex rotated
   PCFileName "brl2320d.ppd"
+}
+
+{
+  ModelName "HL-L2335D series"
+  Attribute "NickName" "" "Brother HL-L2335D series, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,HBP;MDL:HL-L2335D series;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "brl2335d.ppd"
 }
 
 {
@@ -518,6 +540,14 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
 }
 
 {
+  ModelName "MFC-7860DW"
+  Attribute "NickName" "" "Brother MFC-7860DW, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL;MDL:MFC-7860DW;CLS:PRINTER;CID:Brother Laser Type1;"
+  Duplex rotated
+  PCFileName "br7860d.ppd"
+}
+
+{
   ModelName "MFC-8710DW"
   Attribute "NickName" "" "Brother MFC-8710DW, $USING"
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,URF;MDL:MFC-8710DW;CLS:PRINTER;CID:Brother Laser Type2;URF:W8,CP1,IS11-19-4,MT1-3-4-5-8-11,OB10,PQ4,RS300-600-1200,DM1;"
@@ -531,6 +561,13 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   Attribute "1284DeviceID" "" "MFG:Brother;CMD:PJL,PCL,PCLXL,POSTSCRIPT;MDL:MFC-8860DN;CLS:PRINTER;"
   Duplex rotated
   PCFileName "br8860d.ppd"
+}
+
+{
+  ModelName "MFC-9160"
+  Attribute "NickName" "" "Brother MFC-9160, $USING"
+  Attribute "1284DeviceID" "" "MFG:Brother;CMD:HBP,PCL;MDL:MFC-9160;CLS:PRINTER;"
+  PCFileName "br9160.ppd"
 }
 
 {

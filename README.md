@@ -31,6 +31,7 @@ This driver has been reported to work with these printers:
 * Brother DCP-L2540DW series
 * Brother DCP-L2550DW series
 * Brother FAX-2820
+* Brother FAX-2840
 * Brother HL-1110 series
 * Brother HL-1200 series
 * Brother HL-2030 series
@@ -40,6 +41,7 @@ This driver has been reported to work with these printers:
 * Brother HL-2230 series
 * Brother HL-2240D series
 * Brother HL-2250DN series
+* Brother HL-2260
 * Brother HL-2270DW series
 * Brother HL-2280DW
 * Brother HL-5030 series
@@ -48,6 +50,7 @@ This driver has been reported to work with these printers:
 * Brother HL-L2305 series
 * Brother HL-L2310D series
 * Brother HL-L2320D series
+* Brother HL-L2335D series
 * Brother HL-L2340D series
 * Brother HL-L2350DW series
 * Brother HL-L2360D series
@@ -66,8 +69,10 @@ This driver has been reported to work with these printers:
 * Brother MFC-7420
 * Brother MFC-7440N
 * Brother MFC-7460DN
+* Brother MFC-7860DW
 * Brother MFC-8710DW
 * Brother MFC-8860DN
+* Brother MFC-9160
 * Brother MFC-L2700DN series
 * Brother MFC-L2700DW series
 * Brother MFC-L2710DN series
