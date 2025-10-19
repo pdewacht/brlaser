@@ -38,8 +38,15 @@ Filter application/vnd.cups-raster 33 rastertobrlaser
 // The 300dpi mode is reportedly not supported on all printers, so
 // it's listed in individual printer blocks where we believe it works.
 // Resolution k 1 0 0 0 "300dpi/300 DPI"
-*Resolution k 1 0 0 0 "600dpi/600 DPI"
-Resolution k 1 0 0 0 "1200dpi/1200HQ"
+// *Resolution k 1 0 0 0 "600dpi/600 DPI"
+// Resolution k 1 0 0 0 "1200dpi/1200 DPI"
+
+Option Resolution PickOne AnySetup 10
+  // Choice "300dpi/300 DPI" "<</HWResolution[300 300]/cupsColorSpace 3/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0>>setpagedevice"
+  *Choice "600dpi/600 DPI" "<</HWResolution[600 600]/cupsColorSpace 3/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0>>setpagedevice"
+  Choice "1200dpi/1200 DPI" "<</HWResolution[1200 1200]/cupsColorSpace 3/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0>>setpagedevice"
+  Choice "1200x600dpi/HD1200A" "<</HWResolution[1200 1200]/cupsColorSpace 3/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0/cupsInteger12 2>>setpagedevice"
+  Choice "2400x600dpi/HD1200B" "<</HWResolution[1200 1200]/cupsColorSpace 3/cupsBitsPerColor 1/cupsRowCount 0/cupsRowFeed 0/cupsRowStep 0/cupsInteger12 1>>setpagedevice"
 
 // Supported page sizes.
 HWMargins 8 8 8 16
@@ -78,6 +85,20 @@ Option "brlaserEconomode/Toner save mode" Boolean AnySetup 10
   *Choice False/Off "<</cupsInteger10 0>>setpagedevice"
   Choice True/On "<</cupsInteger10 1>>setpagedevice"
 
+Option "brlaserDensityAdjust/Toner Density" PickOne AnySetup 10
+  Choice "94/-6 (lighter)" "<</cupsInteger11 94>>setpagedevice"
+  Choice "95/-5 (lighter)" "<</cupsInteger11 95>>setpagedevice"
+  Choice "96/-4 (lighter)" "<</cupsInteger11 96>>setpagedevice"
+  Choice "97/-3 (lighter)" "<</cupsInteger11 97>>setpagedevice"
+  Choice "98/-2 (lighter)" "<</cupsInteger11 98>>setpagedevice"
+  Choice "99/-1 (lighter)" "<</cupsInteger11 99>>setpagedevice"
+  *Choice "100/0 (default)" "<</cupsInteger11 100>>setpagedevice"
+  Choice "101/+1 (darker)" "<</cupsInteger11 101>>setpagedevice"
+  Choice "102/+2 (darker)" "<</cupsInteger11 102>>setpagedevice"
+  Choice "103/+3 (darker)" "<</cupsInteger11 103>>setpagedevice"
+  Choice "104/+4 (darker)" "<</cupsInteger11 104>>setpagedevice"
+  Choice "105/+5 (darker)" "<</cupsInteger11 105>>setpagedevice"
+  Choice "106/+6 (darker)" "<</cupsInteger11 106>>setpagedevice"
 
 {
   ModelName "DCP-1510"

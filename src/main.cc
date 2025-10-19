@@ -108,9 +108,13 @@ page_params build_page_params(const cups_page_header2_t &header) {
   page_params p = { };
   p.num_copies = header.NumCopies;
   p.resolution = header.HWResolution[0];
+  p.page_speed = header.cupsInteger[12];
+  p.ras1200 = (p.resolution == 1200 && p.page_speed == 2);
   p.economode = header.cupsInteger[10];
+  p.density_adjust = (header.cupsInteger[11] - 100);
   p.mediatype = header.MediaType;
   p.duplex = header.Duplex;
+  p.tumble = header.Tumble;
 
   if (header.MediaPosition < sources.size())
     p.sourcetray = sources[header.MediaPosition];

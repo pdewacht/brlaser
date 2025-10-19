@@ -56,12 +56,17 @@ void job::end_job() {
 
 void job::write_page_header() {
   fprintf(out_, "\033%%-12345X@PJL\n");
-  if (page_params_.resolution != 1200) {
-    fprintf(out_, "@PJL SET RAS1200MODE = FALSE\n");
-    fprintf(out_, "@PJL SET RESOLUTION = %d\n", page_params_.resolution);
-  } else {
+  if (page_params_.ras1200) {
     fprintf(out_, "@PJL SET RAS1200MODE = TRUE\n");
     fprintf(out_, "@PJL SET RESOLUTION = 600\n");
+  } else {
+    fprintf(out_, "@PJL SET RAS1200MODE = FALSE\n");
+    fprintf(out_, "@PJL SET RESOLUTION = %d\n",
+            page_params_.resolution);
+    if (page_params_.resolution == 1200) {
+      fprintf(out_, "@PJL SET PAPERFEEDSPEED = %s\n",
+              page_params_.page_speed ? "FULL" : "HALF");
+    }
   }
   fprintf(out_, "@PJL SET ECONOMODE = %s\n",
           page_params_.economode ? "ON" : "OFF");
@@ -69,6 +74,10 @@ void job::write_page_header() {
           page_params_.sourcetray.c_str());
   fprintf(out_, "@PJL SET MEDIATYPE = %s\n",
           page_params_.mediatype.c_str());
+  fprintf(out_, "@PJL SET DENSITY=%d\n",
+          page_params_.density_adjust);
+  fprintf(out_, "@PJL SET DEVBIASADJUST=%d\n",
+          page_params_.density_adjust);
   fprintf(out_, "@PJL SET PAPER = %s\n",
           page_params_.papersize.c_str());
   fprintf(out_, "@PJL SET PAGEPROTECT = AUTO\n");
@@ -76,10 +85,18 @@ void job::write_page_header() {
   fprintf(out_, "@PJL ENTER LANGUAGE = PCL\n");
 
   fputs("\033E", out_);
-  fprintf(out_, "\033&l%dX", std::max(1, page_params_.num_copies));
+  fprintf(out_, "\033&l%dX",
+          std::max(1, page_params_.num_copies));
 
-  if (page_params_.duplex) {
+  fprintf(out_, "\033&u%dD",
+          page_params_.resolution);
+  fprintf(out_, "\033*t%dR",
+          page_params_.ras1200 ? 600 : page_params_.resolution);
+
+  if (page_params_.duplex || page_params_.tumble) {
     fputs("\033&l2S", out_);
+  } else {
+    fputs("\033&l0S", out_);
   }
 }
 
